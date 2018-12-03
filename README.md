@@ -114,7 +114,7 @@ uooc
 ```
 # 四、第三方包相关介绍
 1. 生成验证码相关包：pillow,io
-   pillow主要是用于生成验证码图片，io是python内置的库，在该项目的应用主要是，将生成图片，保存在内存中，返回给前端。
+   pillow主要是用于生成验证码图片，io是python内置的库，在该项目的应用主要是将生成图片保存在内存中然后返回给前端。
 2.  django-pure-pagination
     实现分页相关功能
 3.  DjangoUeditor
