@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="imagemode" content="force">
+    <title>优课联盟——共建共享，学分互认</title>
+    {% load staticfiles %}
+    <meta name="Keywords" content="优课,优课在线,慕课,mooc,优课联盟,深大,深圳大学,在线教育,高等教育,继续教育,首批国家精品课申报平台">
+    <meta name="Description" content="优课在线是新一代互联网自主学习平台，可为用户提供MOOC，混合式学习及SPOC学习方式。">
+    <link rel="shortcut icon"
+          href="http://assets.uooconline.com/upload/uooc-www/org/logo/2018/11/05/181105103907_650ac3_uooclogo1.png"
+          type="image/x-icon">
+    <link rel="search" type="application/opensearchdescription+xml" href="http://assets.uooconline.com/search.xml"
+          title="优课">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <script src="/static/js/jquery.min.js"></script>
+
+    <style>
+        p {
+            color: rgb(100, 0, 0);
+        }
+
+        #id_avatar {
+            display: inline-block;
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            opacity: 0
+        }
+
+    </style>
+</head>
+<body>
+<div class="container" style="margin-top: 20px">
+    <div class="row col-md-6 col-md-offset-3">
+        <div class="panel panel-info">
+            <div class="panel-heading text-center">请完善您的个人信息</div>
+            <div class="panel-body">
+                <form action="{% url 'user:student_msg' %}" method="post" novalidate enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        <label for="{{ form_obj.student_name.id_for_label }}">姓名</label>
+                        {{ form_obj.student_name }} <p>{{ form_obj.student_name.errors.0 }}</p>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form_obj.institute.id_for_label }}">{{ form_obj.institute.label }}</label>
+                        {{ form_obj.institute }}<p>{{ form_obj.institute.errors.0 }}</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form_obj.profession.id_for_label }}">{{ form_obj.profession.label }}</label>
+                        {{ form_obj.profession }}<p>{{ form_obj.profession.errors.0 }}</p>
+                    </div>
+                    <div class="form-group" style="padding: 0;position: relative;font-size: 18px">
+                        头像
+                        {{ form_obj.avatar }}
+
+                        <img src="/static/img/user_default.jpg" alt="" style="width: 100px;height: 100px;"
+                             id="avatar-img">
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form_obj.school.id_for_label }}">{{ form_obj.school.label }}</label>
+                        {{ form_obj.school }}<p>{{ form_obj.school.errors.0 }}</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="v-code">验证码</label>
+                        <div class="row" style="margin-left: 10px   ">
+                            <input type="text" class="col-md-4 " name="code" id="v-code"
+                                   style="display: inline-block;height: 50px">
+                            <img src="/get_code" id="v-code-img" class=" col-md-7">
+                        </div>
+                    </div>
+                    <p>{{ error_msg }}</p>
+                    <button type="submit" class="btn btn-lg btn-success" style="margin-left: 200px">确认</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    $('input').focus(
+        function () {
+            $(this).next('p').text('');
+            $(this).parent('div').removeClass('has-error')
+        }
+    );
+    $('.form-group').each(
+        function () {
+            if (($(this).children('p').text() !== '')) {
+                $(this).addClass('has-error')
+            }
+        }
+    );
+    $('img').click(function () {
+        let old_src = $(this).attr('src');
+        let new_src = old_src + '?';
+        $(this).attr('src', new_src)
+
+    });
+    $('#id_avatar').change(
+        function () {
+            let file = this.files[0];
+            let fr = new FileReader();
+            fr.readAsDataURL(file);
+            fr.onload = function () {
+                $('#avatar-img').attr('src', fr.result)
+            }
+        }
+    )
+</script>
+
+</body>
+</html>

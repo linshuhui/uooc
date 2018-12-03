@@ -1,0 +1,210 @@
+{% extends 'header.html' %}
+{% load staticfiles %}
+{% block l2 %}
+    active
+{% endblock %}
+
+{% block is_login %}
+    {% if request.user.is_authenticated %}
+        <div class="layout-header-info">
+            <span class="layout-msg-number" ng-if="msgUnreadcnt" ng-cloak="">{{ msgUnreadcnt }}</span>
+            <a class="layout-header-avatar" href="http://www.uooc.net.cn/home#/msg">
+                <img id="top_avatar" src="/media/{{ request.user.studentinfo.avatar }}">
+            </a>
+            <ul class="layout-header-menu layout-header-panel-arrow">
+
+                <li>
+                    <a href="{% url 'user:home' %}">个人中心</a>
+                </li>
+
+                <li>
+                    <a href="{% url 'user:logout' %}">退出
+                    </a>
+                </li>
+            </ul>
+        </div>
+    {% else %}
+        <a href="{% url 'user:login' %}"><span id="loginBtn"
+                                               class="uc-btn uc-btn-small uc-btn-blue uc-btn-border">登录</span></a>
+        <a href="{% url 'user:register' %}"><span id="registerBtn"
+                                                  class="uc-btn uc-btn-small uc-btn-blue">注册</span></a>
+        <a href="{% url 'user:logout' %}"><span id="registerBtn" class="uc-btn uc-btn-small uc-btn-blue"
+                                                style="background-color: #5cb85c">注销</span></a>
+    {% endif %}
+
+{% endblock %}
+{% block form_style %}
+    style= 'margin-right: 70px'
+{% endblock %}
+
+
+
+{% block link %}
+    <link rel="stylesheet" href="{% static  'css/course-list-a402cdd63a.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layer.css' %}">
+{% endblock %}
+{% block body %}
+    <div class="layout-wrapper" style="margin-top: 30px;">
+
+        <div class="layout-wrapper">
+            <!-- 课程分类 -->
+            <div class="course-cate-section">
+                <div class="course-cate-wrapper clearfix">
+                    <strong class="course-cate-title">课程分类：</strong>
+                    <div class="course-cate-list">
+                        <span class="cate query-u  {% if not category_id %}active{% endif %} all"
+                              name="category-all">全部
+                        </span>
+                        {% for cgy in category %}
+                            <span class="cate query-u {% if cgy.0 == category_id %}active{% endif %}"
+                                  name="category-{{ cgy.0 }}">{{ cgy.1 }}
+                            </span>
+                        {% endfor %}
+
+
+                    </div>
+                </div>
+                <div class="course-cate-wrapper clearfix">
+                    <strong class="course-cate-title">供课院校</strong>
+                    <div class="course-cate-list">
+                        <span class="cate query-u all {% if not org_id %}active{% endif %}" name="org_id-all">全部</span>
+                        <div class="course-cate-list-inner has-more">
+                            {% for school in school_list %}
+                                {% if  school.course_set.count %}
+                                    <span class="cate query-u {% if school.id == org_id %}active{% endif %}"
+                                          name="org_id-{{ school.id }}">
+                                        {{ school.name }}({{ school.course_set.count }})
+                                    </span>
+
+                                {% endif %}
+                            {% endfor %}
+
+                            <span class="list-more">
+                    更多
+                    <i class="iconfont icon-caret-down"></i>
+                    <i class="iconfont icon-caret-up"></i>
+                </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-cate-wrapper clearfix">
+                    <strong class="course-cate-title">课程状态：</strong>
+                    <div class="course-cate-list" style="border: none;">
+                                    <span class="cate query-u {% if status == '0' %}active{% endif %} all"
+                                          name="status-all">
+                        全部                    </span>
+                        <span class="cate query-u {% if status == 'pass' %}active{% endif %}" name="status-pass">
+                        即将开课                    </span>
+                        <span class="cate query-u {% if status == 'learn' %}active{% endif %} " name="status-learn">
+                        已开课                    </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 课程排序 -->
+
+            <div class="course-header-section clearfix">
+                <div class="course-header-order">
+                            <span class="query-u {% if order == '0' or not order %}active{% endif %}" name="order-all">
+                    综合排序                </span>
+                    <span class="query-u {% if order == 'hot' %}active{% endif %}" name="order-hot">
+                    热门                </span>
+                    <span class="query-u {% if order == 'newest' %}active{% endif %}" name="order-newest">
+                    最新                </span>
+                </div>
+                <span class="course-header-total">共{{ all_courst_count }}门课</span>
+            </div>
+
+            <!-- 课程列表 -->
+            <div class="course-list-section">
+                <!--门户内页 END-->
+
+                {% for course in course_list.object_list %}
+
+                    <div class="course-item">
+                        <a class="course-item-cover" href="/course/{{ course.id }}"
+                           style="overflow: hidden;">
+                            <img class="lazy-img"
+                                 data-src="/media/{{ course.picture }}"
+                                 src="/media/{{ course.picture }}"
+                                 style="height: 166px; width: 243.413px; margin-left: -1.70673px;">
+                        </a>
+                        <h2 class="course-item-title">
+                            <a href="/course/{{ course.id }}">{{ course.title }}</a>
+                        </h2>
+                        <div class="course-item-info">
+                        <span class="course-item-info-i">
+                            <i class="iconfont icon-kaike-org"></i>
+                            <span>{{ course.school.name }}</span>
+                            <span>
+                                {% load mytags %}
+                                {{ course|get_position }}                       （{{ course|get_name }} ）                            </span>
+                        </span>
+
+                            <span class="course-item-info-i">
+                            <i class="iconfont icon-kaike-language"></i>
+                            <span>开课语种</span>
+                            <span>
+                                {{ course.get_language_display }}                            </span>
+                        </span>
+
+                            <span class="course-item-info-i noafter">
+                                <i class="iconfont icon-kaike-status"></i>
+                                {{ course.get_status_display }}
+                            </span>
+                        </div>
+                        <div class="course-item-details">
+                            {{ course.introduction }}
+                        </div>
+                    </div>
+                {% endfor %}
+
+
+
+
+                <!-- 课程分页 -->
+                <!-- 分页组件 -->
+                <div class="s-pagination-wrapper" style="margin: 20px 0 50px;">
+                    <div class="s-pagination-total">共 {{ all_courst_count }} 条记录</div>
+
+
+                    <ul class="s-pagination">
+
+                        {% if course_list.has_previous %}
+                            <li class="query-u" name="page-{{ course_list.previous_page_number }}">上一页</li>
+                        {% endif %}
+
+                        {% for page in course_list.pages %}
+                            {% if page %}
+                                {% ifequal page course_list.number %}
+                                    <li class="query-u active" name="page-{{ page }}">{{ page }}</li>
+                                {% else %}
+                                    <li class="query-u" name="page-{{ page }}">{{ page }}</li>
+                                {% endifequal %}
+                            {% else %}
+                            {% endif %}
+                        {% endfor %}
+                        {% if course_list.has_next %}
+                            <li class="query-u" name="page-{{ course_list.next_page_number }}">下一页</li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+
+            $('.course-cate-list-inner').each(function (index, item) {
+                var pheight = $(this).parent().height();
+                var cheight = $(this).height();
+                if (cheight > pheight) {
+                    $(this).addClass('has-more');
+                }
+            });
+
+            $('.list-more').bind('click', function () {
+                $(this).parent().parent().toggleClass('list-open');
+            });
+
+        </script>
+    </div>
+{% endblock %}

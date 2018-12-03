@@ -1,0 +1,339 @@
+{% extends 'header.html' %}
+{% block link %}
+    <link rel="stylesheet" href="/static/css/centre_news-ca172c20f6.css">
+    <link rel="stylesheet" href="/static/css/chat-9ef3491a51.css">
+    <link rel="stylesheet" href="/static/css/cropper-5431399b8a.css">
+    <link rel="stylesheet" href="/static/css/studentCenter-dd5ab6e2e5.css">
+    <link rel="stylesheet" href="/static/css/public-8230746c1b.css">
+    <link rel="stylesheet" href="/static/css/public-4dfc0b3d0b.css">
+
+    <script src="/static/js/courseCtrl-9c8b671511.js"></script>
+    <script src="/static/js/cropAvatar-11b4084c02.js"></script>
+    <script src="/static/js/cropper.min.js"></script>
+    <script src="/static/js/jquery.cookie.js"></script>
+    <script src="/static/js/main-3ce55a9507.js"></script>
+    <script src="/static/js/message_templates-35197ec0e4.js"></script>
+    <script src="/static/js/router-989ecaf2b2.js"></script>
+    <script src="/static/js/student_templates-015b70e479.js"></script>
+    <script src="/static/js/ueditor.config.js"></script>
+    <script src="/static/js/ueditor.min.js"></script>
+    <script src="/static/js/zh-cn.js"></script>
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+
+    <script>
+        $('.avatar-outer').click(function () {
+
+        })
+    </script>
+
+
+
+
+
+{% endblock %}
+{% block body %}
+    <div id="center_index" class="minh ng-scope" ui-view="">
+        <div crop-avatar="" options="avatarSava" onsave="updatePic()" class="ng-scope ng-isolate-scope">
+            <div class="avatar-container avatar-crop">
+                <div class="avatar-view" title="更改图像" style="display: none"><img
+                        {#                        ng-src=""#}
+                        alt="Avatar" src="/static/img/user_default.jpg">
+                </div>
+
+            </div>
+        </div>
+        {#        <div class="tip_mask ng-scope ng-hide" ng-show="hideIdentifyMask" ng-click="hdentify()"></div>#}
+        <div class="topPic-block ng-scope">
+            <div class="uwidth" style="position: relative;">
+                <a href="/userapp/student_msg/" style="display: block">
+                    <div class="avatar-outer">
+                        <div class="avatar-outer-p">完善个人信息</div>
+
+                        <img class="user-photo"
+                             ng-src="http://assets.uooconline.com/upload/uooc-www/user/avatar/2018/11/29/181129034943_fc94a3_ef2a344b-a06d-4090-86ea-31b2f0808779.png"
+                             id="img_avatar" title="点击修改" style="cursor:pointer"
+                             src="/media/{{ request.user.studentinfo.avatar }}">
+                    </div>
+                </a>
+
+                <!-- 完善学生个人信息模态框-->
+
+
+                <div class="user-info"><p class="user-name ng-binding">uooc <span class="user-id ng-binding">[ ID: 150784895 ]</span>
+                </p><!-- ngRepeat: indentiItem in user.identiInfo --><!-- ngIf: indentiItem.status == 10 --><p
+                        class="user-identity ng-scope" ng-if="indentiItem.status == 10"
+                        ng-repeat="indentiItem in user.identiInfo"><!-- ngIf: indentiItem.identify == 10 --><i
+                        class="iconfont icon-renzheng1 ng-scope" ng-if="indentiItem.identify == 10" title="学生"></i>
+                    <!-- end ngIf: indentiItem.identify == 10 --> <!-- ngIf: indentiItem.identify == 20 --> <span
+                            class="oneline ng-binding">{{ request.user.studentinfo.school }}--{{ request.user.studentinfo.institute }}--{{ request.user.studentinfo.profession }}</span>
+                    <span class="ng-binding">(学生)</span>
+                </p>
+                    <!-- end ngIf: indentiItem.status == 10 --><!-- end ngRepeat: indentiItem in user.identiInfo -->
+                    <!-- ngIf: !user.is_student_identify && !user.is_teacher_identify --></div>
+                <div class="user-statistic">
+                    <div class="user-statistic-item"><b class="ng-binding">{{ learning_count }}</b>
+                        <p>正在学习课程</p></div>
+                    <div class="user-statistic-item"><b class="ng-binding">{{ all_count }}</b>
+                        <p>学习课程总数</p></div>
+                    <div class="user-statistic-item"><b class="ng-binding">0</b>
+                        <p>发布的讨论</p></div>
+                </div>
+            </div>
+        </div>
+        <div class="student-content uwidth clearfix ng-scope">
+            <div class="student-content-left">
+                <ul class="left-nav" content_class="right-stack">
+                    <li ng-class="{active:$state.includes(&#39;center.course&#39;)}" class="active"><a
+                            ui-sref="center.course.learn" href="http://www.uooc.net.cn/home#/center/course/learn"><i
+                            class="iconfont icon-kecheng2"></i>我学的课</a></li>
+                    <li ng-class="{active:$state.includes(&#39;center.profession.course&#39;)}"><a
+                            ui-sref="center.profession.course"
+                            href="http://www.uooc.net.cn/home#/center/profession/course"><i
+                            class="iconfont icon-weizhuanye" style="font-size: 19px;"></i>微专业</a></li>
+                    <li ng-class="{active:$state.includes(&#39;center.profession.certificate&#39;)||$state.includes(&#39;center.profession.logistics&#39;) || $state.includes(&#39;center.profession.preview&#39;)}">
+                        <a ui-sref="center.profession.certificate"
+                           href="http://www.uooc.net.cn/home#/center/profession/certificate"><i
+                                class="iconfont icon-rongyu"></i>我的证书</a></li>
+                    <li ng-class="{active:$state.includes(&#39;center.recruit&#39;)}"><a ui-sref="center.recruit.offer"
+                                                                                         href="http://www.uooc.net.cn/home#/center/recruit/offer"><i
+                            class="iconfont icon-trainee"></i>我的实习</a></li>
+                    <li ng-class="{active:$state.includes(&#39;center.coupon&#39;)}"><a ui-sref="center.coupon"
+                                                                                        href="http://www.uooc.net.cn/home#/center/coupon"><i
+                            class="iconfont icon-coupon"></i>优惠券 <!-- ngIf: couponNum>0 --></a></li>
+                    <li ng-class="{active:$state.includes(&#39;center.msg&#39;)}"><a ui-sref="center.msg.course"
+                                                                                     href="http://www.uooc.net.cn/home#/center/msg/course"><i
+                            class="iconfont icon-xiaoxi"></i>消息中心 <!-- ngIf: msgUnreadcnt --><span
+                            class="notation ng-binding ng-scope" ng-if="msgUnreadcnt">99+</span>
+                        <!-- end ngIf: msgUnreadcnt --></a></li>
+                    <li ng-class="{active: $state.includes(&#39;center.account&#39;)}"><a
+                            ui-sref="center.account.setting"
+                            href="http://www.uooc.net.cn/home#/center/account/setting"><i
+                            class="iconfont icon-shezhi2"></i>信息设置</a></li>
+                </ul><!-- ngIf: todoList.length > 0 -->
+                <div class="wrapbox backlog ng-scope" ng-if="todoList.length &gt; 0">
+                    <div class="wrapbox-title"><i class="iconfont icon-daiban"></i>待办事项</div>
+                    <div class="wrapbox-content"><!-- ngRepeat: item in todoList -->
+                        <div class="backlog-item ng-scope" ng-repeat="item in todoList"><h3
+                                class="backlog-item-name oneline ng-binding">高等数学A(1)</h3>
+                            <!-- ngRepeat: item_exam in item.exam --><!-- ngRepeat: item_homework in item.homework -->
+                            <!-- ngIf: item.homework --><a class="backlog-item-a ng-scope"
+                                                           href="http://www.uooc.net.cn/exam/1691323055" title="4.3 作业"
+                                                           ng-if="item.homework"
+                                                           ng-repeat="item_homework in item.homework"><span
+                                    class="backlog-item-title oneline ng-binding"><i class="iconfont icon-jobtest"></i>4.3 作业</span>
+                                <span class="backlog-item-time ng-binding">12-04 23:59</span></a>
+                            <!-- end ngIf: item.homework --><!-- end ngRepeat: item_homework in item.homework -->
+                            <!-- ngIf: item.homework --><a class="backlog-item-a ng-scope"
+                                                           href="http://www.uooc.net.cn/exam/985473920" title="4.4 作业"
+                                                           ng-if="item.homework"
+                                                           ng-repeat="item_homework in item.homework"><span
+                                    class="backlog-item-title oneline ng-binding"><i class="iconfont icon-jobtest"></i>4.4 作业</span>
+                                <span class="backlog-item-time ng-binding">12-04 23:59</span></a>
+                            <!-- end ngIf: item.homework --><!-- end ngRepeat: item_homework in item.homework -->
+                            <!-- ngIf: item.homework --><a class="backlog-item-a ng-scope"
+                                                           href="http://www.uooc.net.cn/exam/459995365" title="4.5 作业"
+                                                           ng-if="item.homework"
+                                                           ng-repeat="item_homework in item.homework"><span
+                                    class="backlog-item-title oneline ng-binding"><i class="iconfont icon-jobtest"></i>4.5 作业</span>
+                                <span class="backlog-item-time ng-binding">12-11 23:59</span></a>
+                            <!-- end ngIf: item.homework --><!-- end ngRepeat: item_homework in item.homework -->
+                            <!-- ngIf: item.homework --><a class="backlog-item-a ng-scope"
+                                                           href="http://www.uooc.net.cn/exam/2035782086" title="4.7 作业"
+                                                           ng-if="item.homework"
+                                                           ng-repeat="item_homework in item.homework"><span
+                                    class="backlog-item-title oneline ng-binding"><i class="iconfont icon-jobtest"></i>4.7 作业</span>
+                                <span class="backlog-item-time ng-binding">12-11 23:59</span></a>
+                            <!-- end ngIf: item.homework --><!-- end ngRepeat: item_homework in item.homework -->
+                            <!-- ngRepeat: item_live in item.live --></div><!-- end ngRepeat: item in todoList --></div>
+                </div><!-- end ngIf: todoList.length > 0 --></div>
+            <div class="student-content-right"><!-- uiView: -->
+                <div ui-view="" class="right-stack ng-scope">
+                    <div id="ad" class="ng-scope"
+                         style="display: block; overflow: hidden; position: relative; width: 100%; height: 120px;">
+                        <div class="s-advert-wrapper swiper-wrapper"
+                             style="position: relative; width: 100%; height: 100%">
+                            <a class="swiper-slide s-advert-imte"
+                               style="width: 100%; height: 100%; display: block; background-image: url(http://assets.uooconline.com/upload/uooc-www/common/2018/11/26/181126120332_e42520_1126banner_1000x120.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;"
+                               target="_blank" href="https://mp.weixin.qq.com/s/NBbq5TpyzpXDvcjavk4d8w"></a></div>
+                        <span class="s-advert-close" unselectable="on"><i class="iconfont icon-error"></i></span></div>
+                    <div class="my-course ng-scope">
+                        <div class="uooc-tabs" content_class="msg1">
+                            <a href="{% url 'user:home' %}?type=learn">
+
+                                <div class="uooc-tabs-item  {% if request.GET.type == 'learn' %}active{% endif %}"
+                                     ng-class="{&#39;active&#39;:$state.includes(&#39;center.course.learn&#39;) || $state.includes(&#39;center.course.grade&#39;)}"
+                                     ui-sref="center.course.learn">开课中
+                                </div>
+                            </a>
+
+                            <a href="{% url 'user:home' %}?type=nostart">
+                                <div class="uooc-tabs-item {% if request.GET.type == 'nostart' %}active{% endif %}"
+                                     ng-class="{&#39;active&#39;:$state.includes(&#39;center.course.learn&#39;) || $state.includes(&#39;center.course.grade&#39;)}"
+                                     ui-sref="center.course.learn">即将开始
+                                </div>
+                            </a>
+                            <a href="{% url 'user:home' %}?type=finish">
+                                <div class="uooc-tabs-item {% if request.GET.type == 'finish' %}active{% endif %}"
+                                     ng-class="{&#39;active&#39;:$state.includes(&#39;center.course.learn&#39;) || $state.includes(&#39;center.course.grade&#39;)}"
+                                     ui-sref="center.course.learn">已结束
+                                </div>
+                            </a>
+                            <a href="{% url 'user:home' %}?type=follow">
+                                <div class="uooc-tabs-item {% if request.GET.type == 'follow' %}active{% endif %}"
+                                     ng-class="{&#39;active&#39;:$state.includes(&#39;center.course.learn&#39;) || $state.includes(&#39;center.course.grade&#39;)}"
+                                     ui-sref="center.course.learn">关注的课程
+                                </div>
+                            </a>
+                        </div>
+                        <div class="uooc-tabs-content msg1"><!-- uiView: -->
+                            <div ui-view="" class="ng-scope">
+                                <div class="uooc-tabs-content-item ng-scope" style="display: block"
+                                     ng-show="!showGrade">
+                                    <!-- ngRepeat: item in courseData -->
+                                    {% for course in course_list %}
+                                        <div class="course-item clearfix course-learning ng-scope" id="1910136079"
+                                             ng-repeat="item in courseData">
+                                            <div class="course-cover"><!-- ngIf: item.cover_img --><a
+                                                    class="courseTag ng-scope"
+                                                    data-tagname=""
+                                                    ng-href="/course/1414226975?cycleid=1910136079"
+                                                    ng-style="{&#39;background-image&#39;:&#39;url(http://assets.uooconline.com/upload/uooc-www/course/course605/cover/170904025334_42f1e9_61c8c582-c0e8-4bf9-bff4-2c180944e960_thumb.png)&#39;}"
+                                                    ng-if="item.cover_img"
+                                                    href="/course/{{ course.id }}"
+                                                    style="background-image: url(/media/{{ course.picture }});"></a>
+                                                <!-- end ngIf: item.cover_img --> <!-- ngIf: !item.cover_img -->
+                                                <!-- ngIf: item.attribute_name -->
+                                                <div class="course-cover-title ng-binding ng-scope"
+                                                     ng-if="item.attribute_name">
+                                                    MOOC学分课
+                                                </div><!-- end ngIf: item.attribute_name --></div>
+                                            <div class="course-info"><h3><a
+                                                    ng-href="/course/1414226975?cycleid=1910136079"
+                                                    class="course-name ng-binding"
+                                                    href="/course/{{ course.id }}">沟通技巧<span
+                                                    class="course-cycle-name ng-binding">(2018秋季学期)</span></a>
+                                                <!-- ngIf: item.course_live == 1 --></h3>
+                                                {% load mytags %}
+                                                <div class="course-teacher ng-binding">{{ course| get_name }}（ {{ course.school }}）</div>
+                                                <!-- ngIf: item.status==31 -->
+
+                                                <!-- end ngIf: item.status==31 -->
+                                                <div class="course-info-bot"
+                                                     ng-class="{&#39;orange&#39;: item.status!=31}">
+                                                    <div class="progress-group">
+                                                        <div class="time-tag animate-all ng-isolate-scope" percent=""
+                                                             weeks="13/16" style="margin-left: 227.563px;">
+                                                            <div class="time-tag-t ng-binding">13/16周</div>
+                                                            <div class="triangle" style="margin-left: 19px;"></div>
+                                                        </div>
+                                                        <div class="uooc-progress-bar ng-isolate-scope"
+                                                             uooc-progress-bar=""
+                                                             progress-bar-data="13/16">
+                                                            <div class="uooc-progress-bar-top-item animate-all ng-binding"
+                                                                 ng-style="barStyle" style="width: 81.25%;"></div>
+                                                            <div class="uooc-progress-bar-bottom-item"></div>
+                                                        </div>
+                                                        <div class="progress-time"><span
+                                                                class="start-date ng-binding">{{ course.start_time }}</span>
+                                                            <span class="end-date ng-binding">{{ course.end_time }}</span>
+                                                        </div>
+                                                    </div><!-- ngIf: item.status==31 --><a
+                                                        href="/course/{{ course.id }}"
+                                                        class="course-right-bottom-btn ng-scope"
+                                                        ng-if="item.status==31">继续学习</a>
+                                                    <!-- end ngIf: item.status==31 -->
+                                                    <!-- ngIf: item.status==32 --> <!-- ngIf: item.status==33 -->
+                                                    <!-- ngIf: item.status==34 --> <!-- ngIf: item.status==35 --></div>
+                                                <!-- ngIf: item.pay_status != 1 -->
+                                                <a href="{% url 'school:del_course' %}?cid={{ course.id }}&type={{ request.GET.type }}">
+                                                    <span
+                                                            class="course-right-top-btn ng-scope"
+                                                            ng-if="item.pay_status != 1"
+                                                            ng-click="layerQuitCourse(item.id, item.status)"
+                                                            title="退课">申请退课
+                                                </span>
+                                                </a>
+
+                                                <!-- end ngIf: item.pay_status != 1 --></div>
+                                        </div><!-- end ngRepeat: item in courseData -->
+
+                                    {% endfor %}
+
+
+                                    <div class="nullInfo ng-hide" ng-show="courseData.length &lt;= 0"><i
+                                            class="iconfont icon-search"></i>
+                                        <p>搜索更多想学的课程~</p><a class="btn btn-success nullInfo-btn"
+                                                            href="{% url 'course_list' %}">去选课</a>
+                                    </div>
+                                    <div class="course-list-footer">
+                                        <!-- ngIf: showGetMoreBtn && courseData.length > 0 --></div>
+                                </div>
+
+                            </div>
+                            <div class="record-view" style="display: none">
+                                <div class="courseTitle clearfix">
+                                    <h2 class="ng-binding">
+                                        <small class="ng-binding"> </small>
+                                    </h2>
+                                    {#                                    <span class="btn btn-warning" ng-click="gotoTabViwe()">返回</span></div>#}
+                                    {#                                <div class="myTable">#}
+                                    {#                                    <table>#}
+                                    {#                                        <thead>#}
+                                    {#                                        <tr>#}
+                                    {#                                            <th class="ng-binding">视频 %</th>#}
+                                    {#                                            <th class="ng-binding">作业 %</th>#}
+                                    {#                                            <th class="ng-binding">测验 %</th>#}
+                                    {#                                            <th class="ng-binding">考试 %</th>#}
+                                    {#                                            <th class="ng-binding">讨论 %</th>#}
+                                    {#                                            <th>总成绩</th>#}
+                                    {#                                        </tr>#}
+                                    {#                                        </thead>#}
+                                    {#                                        <tbody>#}
+                                    {#                                        <tr>#}
+                                    {#                                            <td class="ng-binding"></td>#}
+                                    {#                                            <td class="ng-binding"></td>#}
+                                    {#                                            <td class="ng-binding"></td>#}
+                                    {#                                            <td class="ng-binding"></td>#}
+                                    {#                                            <td class="ng-binding"></td>#}
+                                    {#                                            <td style="color: #fd0000" class="ng-binding"></td>#}
+                                    {#                                        </tr>#}
+                                    {#                                        </tbody>#}
+                                    {#                                    </table>#}
+                                    {#                                </div><!-- ngIf: gradeInfo.taskList.length > 0 -->#}
+                                    <div class="nullInfo" ng-show="!gradeInfo.taskList.length"><i
+                                            class="iconfont icon-smiling"></i>
+                                        <p>当前课程,暂无成绩</p><span class="btn btn-success nullInfo-btn"
+                                                              ng-click="gotoTabViwe()">返回</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="exitCourse" style="display: none;">
+                    <div class="myModal-content">
+                        <div class="myModal-body"><h4>确认要退出该课程？</h4>
+                            <div><label><input type="checkbox" ng-model="courItem.courseHistory" ng-true-value="1"
+                                               ng-false-value="0" class="ng-pristine ng-untouched ng-valid ng-empty">
+                                <span>我已知学习记录将被清空</span></label>
+                                <div class="quite-code"><input
+                                        class="form-control ng-pristine ng-untouched ng-valid ng-empty"
+                                        style="width: 80px; vertical-align:middle;" type="text"
+                                        placeholder="验证码" ng-model="courItem.code">
+                                    <button type="button" class="btn btn-sm btn-warning"
+                                            ng-click="getQuiteCode(basicFormModel.phone)" ng-show="!quiteInterval">获取验证码
+                                    </button>
+                                    <button type="button" class="btn btn-sm btn-default ng-binding ng-hide"
+                                            ng-show="quiteInterval">获取验证码(0)S
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="myModal-footer"><a class="btn btnZ bgColorGray" ng-click="quitCourse()"
+                                                       ng-class="{bgColorGray: !courItem.courseHistory || !courItem.code}">确认</a>
+                            <a class="btn btnZ bgColorGray" ng-click="closeAll()">取消</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}

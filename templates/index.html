@@ -1,0 +1,272 @@
+{% extends 'header.html' %}
+{% load staticfiles %}
+{% block l1 %}
+active
+{% endblock %}
+
+
+<div class="layout-header-info">
+    <span class="layout-msg-number" ng-if="msgUnreadcnt" ng-cloak="">{{ msgUnreadcnt }}</span>
+    <a class="layout-header-avatar" href="http://www.uooc.net.cn/home#/msg">
+        <img id="top_avatar" src="//assets.uooconline.com/index/images/user_default.jpg">
+    </a>
+    <ul class="layout-header-menu layout-header-panel-arrow">
+
+        <li>
+            <a href="http://www.uooc.net.cn/home">个人中心</a>
+        </li>
+
+        <li>
+            <a href="http://www.uooc.net.cn/user/logout">退出
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+
+{#{% block is_login %}#}
+{#    {% if request.user.is_authenticated %}#}
+{#        <div class="layout-header-info">#}
+{#            <span class="layout-msg-number" ng-if="msgUnreadcnt" ng-cloak="">{{ msgUnreadcnt }}</span>#}
+{#            <a class="layout-header-avatar" href="http://www.uooc.net.cn/home#/msg">#}
+{#                <img id="top_avatar" src="{{ avatar }}">#}
+{#            </a>#}
+{#            <ul class="layout-header-menu layout-header-panel-arrow">#}
+{##}
+{#                <li>#}
+{#                    <a href="{% url 'user:home' %}">个人中心</a>#}
+{#                </li>#}
+{##}
+{#                <li>#}
+{#                    <a href="{% url 'user:logout' %}">退出#}
+{#                    </a>#}
+{#                </li>#}
+{#            </ul>#}
+{#        </div>#}
+{#        {% else %}#}
+{#        <a href="{% url 'user:login' %}"><span id="loginBtn"#}
+{#                                                       class="uc-btn uc-btn-small uc-btn-blue uc-btn-border">登录</span></a>#}
+{#                <a href="{% url 'user:register' %}"><span id="registerBtn"#}
+{#                                                          class="uc-btn uc-btn-small uc-btn-blue">注册</span></a>#}
+{#                <a href="{% url 'user:logout' %}"><span id="registerBtn" class="uc-btn uc-btn-small uc-btn-blue"#}
+{#                                                        style="background-color: #5cb85c">注销</span></a>#}
+{#    {% endif %}#}
+{##}
+{#{% endblock %}#}
+
+
+
+
+
+{% block body %}
+    <div class="middler bg-grey pt30 pb60">
+        <div class="layout-wrapper">
+
+            <!--顶部区域-->
+            <div class="slideBox">
+
+                <!--Banner-->
+                <div class="banner">
+                    <div class="AD swiper-container swiper-container-horizontal" id="swiper-banner">
+                        <div class="swiper-wrapper"
+                             style="transform: translate3d(-7680px, 0px, 0px); transition-duration: 0ms;">
+                            {% for banner_obj in banner_obj_list %}
+                                <div class="swiper-slide" style="width: 1280px;">
+                                    <a href="course/{{ banner_obj.course_id }}" style="overflow: hidden;">
+                                        <img class="lazy-img"
+                                             data-src="/media/{{ banner_obj.course.picture }}"
+                                             src="/media/{{ banner_obj.course.picture }}"
+                                        >
+
+                                    </a>
+                                </div>
+                            {% endfor %}
+
+
+                        </div>
+                        <div class="swiper-pagination banner-pagination swiper-pagination-clickable swiper-pagination-bullets">
+                            <span class="swiper-pagination-bullet"></span><span
+                                class="swiper-pagination-bullet"></span><span
+                                class="swiper-pagination-bullet"></span><span
+                                class="swiper-pagination-bullet"></span><span
+                                class="swiper-pagination-bullet"></span><span
+                                class="swiper-pagination-bullet"></span><span
+                                class="swiper-pagination-bullet swiper-pagination-bullet-active"></span></div>
+                        <div class="prevnextBtn banner-prev"><i class="iconfont icon-arrow-left"></i></div>
+                        <div class="prevnextBtn banner-next swiper-button-disabled"><i
+                                class="iconfont icon-arrow-right"></i></div>
+                    </div>
+                </div>
+
+                <!--学科导航-->
+                <div class="subjectNav">
+                    <ul>
+                        {% for cgy in all_category_list %}
+                            <li><a class="oneline" href="{% url 'course_list' %}?category={{ cgy.id }}&amp;page=1"><i
+                                    class="iconfont icon-{{ cgy.icon }}"></i>{{ cgy.name }}</a></li>
+
+                        {% endfor %}
+
+
+                    </ul>
+                </div>
+
+                <!--快捷登录-->
+                <div class="shortcuter">
+
+                    <!--未登录-->
+                    <div class="shortcut-unlogin">
+                        <h3 class="shortcut-title">共建共享<br>学分互认</h3>
+                        <div class="shortcut-img">
+                            <img src="{{ avatar }}" alt="" style="height:97px;width: 83px; ;">
+                            <div class="shortcut-name oneline">{{ stu_name }}</div>
+                        </div>
+                        {% if request.user %}
+                            <div><a class="Btn Btn-blueGra Btn-full" href="{% url 'user:home' %}?type=learn">查看我的全部课程</a></div>
+                        {% else %}
+                            <div><span id="homeLogin" class="loginBtn Btn Btn-blueGra Btn-full">登录</span></div>
+                        {% endif %}
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!--新闻-->
+            <div class="indexNew clearfix">
+                <a class="indexNew-more fl_right" href="http://www.uooc.net.cn/league/union/news">查看全部新闻&nbsp;&gt;</a>
+                <div class="indexNew-info" id="indexNew-info">
+                    <ul style="margin-top: 0px;">
+
+
+                        <li><a class="oneline" href="http://www.uooc.net.cn/league/union/detail/nid/192381361">优课联盟APP【优课UOOC】
+                            V1.0.0版本正式上线，请同学们下载使用</a></li>
+                        <li><a class="oneline" href="http://www.uooc.net.cn/league/union/detail/nid/1480201883">优课联盟官网重大更新：全新界面与学习体验</a>
+                        </li>
+                        <li><a class="oneline" href="http://www.uooc.net.cn/league/union/detail/nid/771724328">MOOC课程现向社会学员开放暑期班</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--推荐课程-->
+            <div class="recommendCourse">
+                <div class="topTitle clearfix">
+                    <h2 class="topTitle-title"
+                        style="background-image: url(//assets.uooconline.com/league/union/images/title_0.png);">
+                        推荐课程</h2>
+                    <a href="{% url 'course_list' %}" class="s-more topTitle-more">查看更多</a>
+                </div>
+                <div class="recommendCourse-container">
+                    <div class="prevnextBtn recommendCourse-prev swiper-button-disabled"><i
+                            class="iconfont icon-arrow-left"></i></div>
+                    <div class="prevnextBtn recommendCourse-next"><i class="iconfont icon-arrow-right"></i></div>
+                    <div id="swiper-course"
+                         class="recommendCourse-main clearfix swiper-container swiper-container-horizontal">
+                        <div class="swiper-wrapper"
+                             style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
+                            {% for course in recommendCourse %}
+                                <div class="swiper-slide" style="width: 216px; margin-right: 50px;">
+                                    <a class="courseItem" href="/course/{{ course.id }}"
+                                       target="_blank">
+                                        <div class="courseItem-img" style="overflow: hidden;">
+                                            <img class="lazy-img"
+                                                 data-src="/media/{{ course.picture }}"
+                                                 src="/media/{{ course.picture }}"
+                                                 style="height: 154px; width: 225.817px; margin-left: -4.90865px;">
+                                        </div>
+                                        <div class="courseItem-info">
+                                            <div class="courseItem-info-main">
+                                                <h3 class="courseItem-title oneline">{{ course.title }}</h3>
+                                                <p class="courseItem-from">
+                                                    <span class="courseItem-org oneline">{{ course.school }}</span><span
+                                                        {% load mytags %}
+                                                        class="courseItem-teacher oneline">{{ course| get_name }}</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 运营位 -->
+            <div id="swiper-position-a" class="AD layout-wrapper swiper-container-horizontal">
+                <div class="swiper-wrapper">
+                    {% for bodyBanner in bodyBanner_list %}
+                        <div class="swiper-slide swiper-slide-active" style="width: 615px; margin-right: 50px;">
+                            <a class="yunying" href="/course/{{ bodyBanner.course.id }}" style="overflow: hidden;">
+                                <img class="lazy-img"
+                                     data-src="/media/{{ bodyBanner.bodyBannerImage }}"
+                                     src="/media/{{ bodyBanner.bodyBannerImage }}"
+                                     style="height: 100px; width: 615px; margin-left: -0.3045px;">
+                            </a>
+                        </div>
+                    {% endfor %}
+
+
+                </div>
+            </div>
+
+            <!--学科课程-->
+            {% for display_category in display_category_list %}
+                <div class="discipline">
+                    <div class="topTitle clearfix">
+                        <h2 class="topTitle-title"
+                            style="background-image: url('/media/{{ display_category.titleBackgroundImgage }}');">
+                            /media/{{ display_category.titleBackgroundImgage }}</h2>
+
+                        <div class="topTitle-tag">
+                            {% for foo in display_category.keyword_set.all %}
+                                <span><a
+                                        href="{% url 'course_list' %}?category={{ display_category.id }}&amp;q={{ foo.keyword }}">{{ foo.keyword }}</a>
+                                </span>
+
+                            {% endfor %}
+
+
+                        </div>
+                    </div>
+                    <div class="discipline-container clearfix">
+                        <a class="discipline-img fl_left"
+                           style="background-image: url('/media/{{ display_category.bodyBackgroundImgage }}');"
+                           href="{% url 'course_list' %}?category={{ display_category.id }}">
+                        </a><a class="discipline-img-a" style="display:none">更多课程</a>
+
+                        <div class="discipline-list clearfix">
+                            {% for course in display_category.course_set.all %}
+                                <a class="courseItem" href="course/{{ course.id }}">
+                                    <div class="courseItem-img" style="overflow: hidden;">
+                                        <img class="lazy-img"
+                                             data-src="/media/{{ course.picture }}"
+                                             src="/media/{{ course.picture }}"
+                                             style="height: 143px; width: 209.688px; margin-left: -4.84375px;">
+                                    </div>
+                                    <div class="courseItem-info">
+                                        <div class="courseItem-info-main">
+                                            <h3 class="courseItem-title oneline">{{ course.title }}</h3>
+                                            <p class="courseItem-from">
+                                                <span class="courseItem-org oneline">{{ course.school }}</span><span
+                                                    class="courseItem-teacher oneline">{{ course|get_name }}</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+
+                            {% endfor %}
+
+
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+
+        </div>
+    </div>
+{% endblock %}

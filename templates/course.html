@@ -1,0 +1,1728 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://www.uooc.net.cn/course/1414226975 -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="/static/js/114.js" id="AWSC_uabModule"></script>
+    <script src="/static/js/nvc.js"></script>
+    <script src="/static/js/jquery.min.js"></script>
+
+
+    <style class="vjsstyles-defaults">
+        .video-js {
+            width: 300px;
+            height: 150px;
+        }
+
+        .vjsfluid {
+            padding-top: 56.25%
+        }
+    </style>
+    <style class="vjsstyles-dimensions">
+        .player-dimensions {
+            width: 620px;
+            height: 350px;
+        }
+
+        .player-dimensions.vjsfluid {
+            padding-top: 56.25%;
+        }
+    </style>
+    <style type="text/css">@charset "UTF-8";
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide:not(.ng-hide-animate) {
+        display: none !important;
+    }
+
+    ng\:form {
+        display: block;
+    }
+
+    .ng-animate-shim {
+        visibility: hidden;
+    }
+
+    .ng-anchor {
+        position: absolute;
+    }</style>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=1280">
+    <!--<meta name="_xsrf" content="">-->
+    <meta name="layoutmode" content="standard">
+    <meta name="imagemode" content="force">
+    <title>优课联盟——共建共享，学分互认</title>
+    {% load staticfiles %}
+    <meta name="Keywords" content="优课,优课在线,慕课,mooc,优课联盟,深大,深圳大学,在线教育,高等教育,继续教育,首批国家精品课申报平台">
+    <meta name="Description" content="优课在线是新一代互联网自主学习平台，可为用户提供MOOC，混合式学习及SPOC学习方式。">
+    <link rel="shortcut icon"
+          href="http://assets.uooconline.com/upload/uooc-www/org/logo/2018/11/05/181105103907_650ac3_uooclogo1.png"
+          type="image/x-icon">
+    <link rel="search" type="application/opensearchdescription+xml" href="http://assets.uooconline.com/search.xml"
+          title="优课">
+    title="优课">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/iconfont-0645ae236e.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/public-4dfc0b3d0b.css' %}">
+    <!-- CSS STYLE-->
+    <link rel="stylesheet" type="text/css" href="/static/css/iconfont-85aac633a2.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/animate-8b03ef312e.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/public-8230746c1b.css">
+
+
+    <script src="/static/js/jsnvcPrepare.jsnp"></script>
+    <script src="/static/js/hm.js"></script>
+    <script type="text/javascript">
+        (function () {
+            // 全局
+            window.isLogin = "";
+            window.staticRoot = "//assets.uooconline.com";
+            window.webRoot = "http://www.uooc.net.cn";
+
+            // 移动端进入跳转到APP页面
+            var USER_AGENT = navigator.userAgent;
+            var AGENTS = ['Android', 'iPhone', 'SymbianOS', 'Windows Phone', 'iPad', 'iPod'];
+            for (var v = 0; v < AGENTS.length; v++) {
+                if (USER_AGENT.search(AGENTS[v]) != -1) {
+                    location.href = "/app/download"
+                    break;
+                }
+            }
+
+            // 百度统计
+            var hm = document.createElement("script");
+            var curHref = location.href;
+            var baiduHash = curHref.search('api.uooc.online') > -1 ? 'b4444460a6edf29501337cf2c90555cc' : curHref.search('abc.org-beta.uooconline.com') > -1 ? '30a1929a34bfc7398f8dcef943f7e1b8' : curHref.search('beta.uooconline.com') > -1 ? '1c4aa021265744d2b8f0a9a59c3866c9' : curHref.search('uooc.net.cn') > -1 ? 'd1a5821d95582e27154fc4a1624da9e3' : '7c307a902207c45c0eaf86510e2c24a1';
+            hm.src = '//hm.baidu.com/hm.js' + baiduHash;
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+    <!-- JQUERY VENDORS -->
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.placeholder.min.js"></script>
+    <!--<script type='text/javascript' src='/index/jsvendors/layer.js></script>-->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/layer.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/layer.css' %}" id="layui_layer_skinlayercss" style="">
+    <script type="text/javascript" src="{% static 'js/base-f04329c2b8.js' %}"></script>
+
+    <!-- ANGULAR VENDORS-->
+    <script type="text/javascript" src="/static/js/angular.js"></script>
+    <script type="text/javascript" src="/static/js/angular-ui-router.js"></script>
+    <script type="text/javascript" src="/static/js/ocLazyLoad.js"></script>
+
+    <!-- UNDERSCORE -->
+    <script type="text/javascript" src="/static/js/underscore.min.js"></script>
+
+    <!-- COMMON MODULE -->
+    <script type="text/javascript" src="/static/js/common-1f3057f0fc.js"></script>
+    <script type="text/javascript" src="/static/js/pager-f66c30a338.js"></script>
+    <script type="text/javascript" src="/static/js/courseService-966c7794e4.js"></script>
+    <script type="text/javascript" src="/static/js/app-4a4d239128.js"></script>
+    <script type="text/javascript" src="/static/js/common_directive-5f6e908b08.js"></script>
+    <script type="text/javascript" src="/static/js/login-0f4b811ffb.js"></script>
+    <style type="text/css">.sm-pop {
+        position: absolute;
+        background: #fff;
+        border: 1px solid #cfe2f6;
+        z-index: 10000
+    }
+
+    .sm-pop-inner {
+        position: absolute;
+        width: 100%
+    }
+
+    .sm-pop-close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 15px;
+        height: 15px;
+        line-height: 15px;
+        text-align: center;
+        background: url(//img.alicdn.com/tfs/TB1z6LQmf6H8KJjy0FjXXaXepXa-14-14.png);
+        cursor: pointer
+    }
+
+    #sc {
+        margin-left: 100px;
+        margin-top: 200px
+    }
+
+    .sm-btn-wrapper {
+        position: relative
+    }
+
+    .sm-txt {
+        margin-left: 20px;
+        font-size: 14px;
+        vertical-align: middle;
+        color: #3c3c3c
+    }
+
+    .sm-btn {
+        line-height: 42px;
+        border: 1px solid #ddd;
+        cursor: pointer;
+        overflow: hidden
+    }
+
+    #rectMask {
+        top: 0;
+        left: 0
+    }
+
+    #rectMask, #sm-btn-bg {
+        overflow: hidden;
+        position: absolute
+    }
+
+    #sm-btn-bg {
+        background-image: linear-gradient(0deg, #ededed, #fff);
+        cursor: pointer;
+        z-index: -1;
+        top: 1px;
+        left: 1px
+    }
+
+    .sm-btn-default .sm-ico:hover {
+        box-shadow: 0 0 10px #00de76;
+        background: rgba(0, 222, 118, .3)
+    }
+
+    .sm-btn-default:hover, .sm-btn-loading:hover, .sm-btn-success:hover {
+        box-shadow: 0 0 8px #65f4b5
+    }
+
+    .sm-btn-fail:hover {
+        box-shadow: 0 0 8px #f55742
+    }
+
+    .sm-btn-default .sm-ico, .sm-btn-fail .sm-ico, .sm-btn-loading .sm-ico, .sm-btn-success .sm-ico {
+        position: relative;
+        background: none;
+        display: inline-block;
+        margin-top: -3px;
+        margin-left: 12px;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        line-height: 36px;
+        text-align: center;
+        vertical-align: middle
+    }
+
+    .sm-btn-default .sm-ico-wave {
+        animation: defaultWave 1.5s ease infinite
+    }
+
+    .sm-btn-default .sm-ico-wave, .sm-btn-fail .sm-ico-wave, .sm-btn-loading .sm-ico-wave, .sm-btn-success .sm-ico-wave {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        position: relative;
+        z-index: 800;
+        left: 5px;
+        top: 5px
+    }
+
+    .sm-btn-default .sm-ico-wave, .sm-btn-loading .sm-ico-wave, .sm-btn-success .sm-ico-wave {
+        background-image: linear-gradient(0deg, #3a9afa, #00de76)
+    }
+
+    .sm-btn-default .shield, .sm-btn-fail .shield, .sm-btn-loading .shield, .sm-btn-success .shield {
+        width: 12px;
+        height: 14px;
+        line-height: 38px;
+        left: 12px;
+        position: absolute;
+        z-index: 1000;
+        top: -1px
+    }
+
+    .sm-btn-default .shield {
+        animation: shieldanimation 1.5s infinite
+    }
+
+    .sm-btn-default .out-silder-circle {
+        background: #c3efe8
+    }
+
+    .sm-btn-default .out-silder-circle, .sm-btn-loading .out-silder-circle {
+        position: absolute;
+        width: 36px;
+        height: 36px;
+        line-height: 36px;
+        border-radius: 50%;
+        text-align: center;
+        vertical-align: middle;
+        top: 0
+    }
+
+    .sm-btn-loading .out-silder-circle {
+        background: linear-gradient(rgba(0, 222, 118, .8), rgba(0, 222, 118, .4), rgba(0, 222, 118, .3), rgba(0, 222, 118, .2))
+    }
+
+    .sm-btn-default .out-silder-circle {
+        animation: defaultOutsideWave 1.5s ease infinite
+    }
+
+    .sm-btn-loading .out-silder-circle {
+        animation: loadingWave 1s infinite
+    }
+
+    .sm-btn-default .right-tick, .sm-btn-default .wrong-cross, .sm-btn-loading .right-tick, .sm-btn-loading .wrong-cross, .sm-btn-success .wrong-cross {
+        display: none
+    }
+
+    .sm-btn-fail .out-silder-circle, .sm-btn-success .out-silder-circle {
+        position: absolute;
+        width: 36px;
+        height: 36px;
+        line-height: 36px;
+        border-radius: 50%;
+        text-align: center;
+        vertical-align: middle;
+        top: 0
+    }
+
+    .sm-btn-success .out-silder-circle {
+        animation: successWave 1s infinite;
+        animation-iteration-count: 1;
+        background: #c3efe8
+    }
+
+    .sm-btn-success .sm-txt {
+        color: #01bf8f;
+        animation: successTxt 1s;
+        animation-iteration-count: 1
+    }
+
+    .sm-btn-fail .rect-top:before, .sm-btn-success .rect-top:before {
+        content: "";
+        display: block;
+        height: 200%;
+        position: absolute;
+        top: 0;
+        left: 0
+    }
+
+    .sm-btn-success .rect-top:before {
+        border-left: 1px solid #00de76;
+        animation: successRectLeft .5s;
+        animation-iteration-count: 1
+    }
+
+    .sm-btn-fail .rect-top, .sm-btn-success .rect-top {
+        position: absolute;
+        top: 0;
+        left: 0
+    }
+
+    .sm-btn-success .rect-top {
+        animation: successRectTop 1s;
+        animation-delay: .5s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards
+    }
+
+    .sm-btn-fail .rect-top:after, .sm-btn-success .rect-top:after {
+        content: "";
+        display: block;
+        height: 100%;
+        position: absolute;
+        top: -1px;
+        right: 0
+    }
+
+    .sm-btn-success .rect-top:after {
+        animation: successRectRight .5s;
+        animation-delay: 1.5s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards
+    }
+
+    .sm-btn-fail .rect-bottom, .sm-btn-success .rect-bottom {
+        position: absolute;
+        left: 0
+    }
+
+    .sm-btn-success .rect-bottom {
+        animation: successRectBottom 1s;
+        animation-delay: .5s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards
+    }
+
+    .sm-btn-fail .rect-bottom:after, .sm-btn-success .rect-bottom:after {
+        content: "";
+        display: block;
+        height: 100%;
+        position: absolute;
+        top: 1px;
+        right: 0
+    }
+
+    .sm-btn-success .rect-bottom:after {
+        animation: successRectBottomRight .5s;
+        animation-delay: 1.5s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards
+    }
+
+    .sm-btn-success .right-tick {
+        position: absolute;
+        width: 8px;
+        height: 6px;
+        display: block;
+        top: 18px;
+        left: 16px;
+        z-index: 2000
+    }
+
+    .sm-btn-success .right-tick .right-tick-left, .sm-btn-success .right-tick .right-tick-right {
+        position: absolute;
+        height: 1px;
+        background: #00de76
+    }
+
+    .sm-btn-success .right-tick .right-tick-left {
+        transform: rotate(45deg);
+        transform-origin: left top;
+        top: -1px;
+        left: -1px;
+        animation: rightTickLeft .3s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards
+    }
+
+    .sm-btn-success .right-tick .right-tick-right {
+        transform: rotate(315deg);
+        transform-origin: left bottom;
+        top: 1px;
+        left: 1px;
+        animation: rightTickRight .3s;
+        animation-delay: .29s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards
+    }
+
+    .sm-btn-fail .sm-ico-wave {
+        background-image: linear-gradient(0deg, #fc3bab, #f26216)
+    }
+
+    .sm-btn-fail .out-silder-circle {
+        background: rgba(244, 88, 58, .25);
+        animation: failWave 1s infinite;
+        animation-iteration-count: 1
+    }
+
+    .sm-btn-fail .sm-txt {
+        color: #f55742;
+        animation: failTxt 1s;
+        animation-iteration-count: 1
+    }
+
+    .sm-btn-fail .rect-top:before {
+        border-left: 1px solid #f55742;
+        animation: failRectLeft .5s;
+        animation-iteration-count: 1
+    }
+
+    .sm-btn-fail .rect-top {
+        animation: failRectTop 1s;
+        animation-delay: .5s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards
+    }
+
+    .sm-btn-fail .rect-top:after {
+        animation: failRectRight .5s;
+        animation-delay: 1.5s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards
+    }
+
+    .sm-btn-fail .rect-bottom {
+        animation: failRectBottom 1s;
+        animation-delay: .5s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards
+    }
+
+    .sm-btn-fail .rect-bottom:after {
+        animation: failRectBottomRight .5s;
+        animation-delay: 1.5s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards
+    }
+
+    .sm-btn-fail .right-tick {
+        display: none
+    }
+
+    .sm-btn-fail .wrong-cross {
+        position: absolute;
+        width: 8px;
+        height: 6px;
+        display: block;
+        top: 19px;
+        left: 16px;
+        z-index: 2000
+    }
+
+    .sm-btn-fail .wrong-cross .wrong-cross-left, .sm-btn-fail .wrong-cross .wrong-cross-right {
+        position: absolute;
+        height: 1px;
+        background: #f55742
+    }
+
+    .sm-btn-fail .wrong-cross .wrong-cross-left {
+        transform: rotate(135deg);
+        transform-origin: left bottom;
+        top: -6px;
+        left: 4px;
+        animation: wrongCrossLeft .3s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards
+    }
+
+    .sm-btn-fail .wrong-cross .wrong-cross-right {
+        transform: rotate(45deg);
+        transform-origin: left top;
+        top: -5px;
+        left: 0;
+        animation: wrongCrossRight .3s;
+        animation-delay: .29s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards
+    }
+
+    @keyframes shieldanimation {
+        0% {
+            transform: scale(1)
+        }
+        20% {
+            transform: scale(1.15)
+        }
+        40% {
+            transform: scale(1)
+        }
+        to {
+            transform: scale(1)
+        }
+    }
+
+    @keyframes defaultWave {
+        0% {
+            transform: scale(1)
+        }
+        20% {
+            transform: scale(1.23)
+        }
+        40% {
+            transform: scale(1)
+        }
+        to {
+            transform: scale(1)
+        }
+    }
+
+    @keyframes defaultOutsideWave {
+        0% {
+            transform: scale(1)
+        }
+        20% {
+            transform: scale(.8125)
+        }
+        40% {
+            transform: scale(1)
+        }
+        to {
+            transform: scale(1)
+        }
+    }
+
+    @keyframes loadingWave {
+        0% {
+            transform: rotate(0deg)
+        }
+        to {
+            transform: rotate(1turn)
+        }
+    }
+
+    @keyframes successWave {
+        0% {
+            background: none
+        }
+        to {
+            background: #c3efe8
+        }
+    }
+
+    @keyframes successTxt {
+        0% {
+            color: #333
+        }
+        to {
+            color: #01bf8f
+        }
+    }
+
+    @keyframes successRectTop {
+        0% {
+            width: 0;
+            border-top: 1px solid #00de76
+        }
+        to {
+            width: 100%;
+            border-top: 1px solid #00de76
+        }
+    }
+
+    @keyframes successRectLeft {
+        0% {
+            transform: scaleY(0)
+        }
+        to {
+            transform: scaleY(1)
+        }
+    }
+
+    @keyframes successRectRight {
+        0% {
+            height: 0;
+            border-right: 1px solid #00de76
+        }
+        to {
+            height: 104%;
+            border-right: 1px solid #00de76
+        }
+    }
+
+    @keyframes successRectBottom {
+        0% {
+            width: 0;
+            border-bottom: 1px solid #00de76
+        }
+        to {
+            width: 100%;
+            border-bottom: 1px solid #00de76
+        }
+    }
+
+    @keyframes successRectBottomRight {
+        0% {
+            top: 100%;
+            border-right: 1px solid #00de76
+        }
+        to {
+            top: 0;
+            border-right: 1px solid #00de76
+        }
+    }
+
+    @keyframes failWave {
+        0% {
+            background: none
+        }
+        to {
+            background: rgba(244, 88, 58, .25)
+        }
+    }
+
+    @keyframes failTxt {
+        0% {
+            color: #333
+        }
+        to {
+            color: #f55742
+        }
+    }
+
+    @keyframes failRectTop {
+        0% {
+            width: 0;
+            border-top: 1px solid #f55742
+        }
+        to {
+            width: 100%;
+            border-top: 1px solid #f55742
+        }
+    }
+
+    @keyframes failRectLeft {
+        0% {
+            transform: scaleY(0)
+        }
+        to {
+            transform: scaleY(1)
+        }
+    }
+
+    @keyframes failRectRight {
+        0% {
+            height: 0;
+            border-right: 1px solid #f55742
+        }
+        to {
+            height: 110%;
+            border-right: 1px solid #f55742
+        }
+    }
+
+    @keyframes failRectBottom {
+        0% {
+            width: 0;
+            border-bottom: 1px solid #f55742
+        }
+        to {
+            width: 100%;
+            border-bottom: 1px solid #f55742
+        }
+    }
+
+    @keyframes failRectBottomRight {
+        0% {
+            top: 100%;
+            border-right: 1px solid #f55742
+        }
+        to {
+            top: 1px;
+            border-right: 1px solid #f55742
+        }
+    }
+
+    @keyframes wrongCrossLeft {
+        0% {
+            width: 0
+        }
+        to {
+            width: 7px
+        }
+    }
+
+    @keyframes wrongCrossRight {
+        0% {
+            width: 0
+        }
+        to {
+            width: 7px
+        }
+    }
+
+    @keyframes rightTickLeft {
+        0% {
+            width: 0
+        }
+        to {
+            width: 3px
+        }
+    }
+
+    @keyframes rightTickRight {
+        0% {
+            width: 0
+        }
+        to {
+            width: 6px
+        }
+    }</style>
+    <script src="/static/js/share.js"></script>
+    <link rel="stylesheet" href="/static/css/share_style0_32.css">
+</head>
+
+<body ng-controller="header.com.controller" class="ng-scope">
+
+<div id="layout-header" class="layout-header layout-header-fixed">
+    <div class="layout-wrapper clearfix">
+        <a href="http://www.uooc.net.cn/" class="layout-header-logo">
+            <img src="{% static 'img/181105102853_356892_优课联盟logo.png' %}">
+        </a>
+        <!-- 导航菜单 -->
+        <ul class="layout-header-nav">
+            <li>
+                <a class=" active" href="{% url 'index' %}">
+                    首页 </a>
+            </li>
+            <li>
+                <a class=" " href="{% url 'course_list' %}">
+                    课程 </a>
+            </li>
+            <li>
+                <a class=" " href="{% url 'org_list' %}">
+                    联盟院校 </a>
+            </li>
+            <li>
+                <a class=" " href="{% url 'about' %}">
+                    关于我们 </a>
+            </li>
+        </ul>
+        <div class="layout-header-right ">
+            <div class="uooc-app-dowload">
+                <span class="uooc-app-btn"><i class="iconfont icon-kehuduan"></i>移动端</span>
+                <div class="uooc-app-panel layout-header-panel-arrow">
+                    <div class="clearfix">
+                        <div class="uooc-app-qr">
+                            <img src="{% static 'img/QR_app.png' %}" alt="立即">
+                            <p>优课UOOC APP</p>
+                        </div>
+                        <div class="uooc-app-qr">
+                            <img src="{% static 'img/QR_gzh.png' %}" alt="立即">
+                            <p>扫描二维码关注公众号</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 搜索 -->
+            <form class="layout-header-search" action="/search/" method="get"
+                  {% if request.user.is_authenticated %}style= 'margin-right: 70px'{% endif %}
+                  onsubmit="javascript: if(!document.getElementById(&#39;keyword&#39;).value) { return false;}">
+                <input type="text" name="q" id="keyword" value="" placeholder="请输入课程/学校/主讲老师" title="请输入课程/学校开始找课">
+            </form>
+
+            <!-- 已登录 -->
+            <!-- 未登录 -->
+            {% if request.user.is_authenticated %}
+                <div class="layout-header-info">
+                    <span class="layout-msg-number" ng-if="msgUnreadcnt" ng-cloak="">{{ msgUnreadcnt }}</span>
+                    <a class="layout-header-avatar" href="http://www.uooc.net.cn/home#/msg">
+                        <img id="top_avatar"
+                             src="{% if request.user.is_authenticated %}
+                                    /media/{{ request.user.studentinfo.avatar }}
+                                   {% else %}
+                                      /static/img/mascot.png
+                                    {% endif %}
+                                ">
+                    </a>
+                    <ul class="layout-header-menu layout-header-panel-arrow">
+
+                        <li>
+                            <a href="{% url 'user:home' %}?type=learn">个人中心</a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'user:logout' %}">退出
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            {% else %}
+                <a href="{% url 'user:login' %}"><span id="loginBtn"
+                                                       class="uc-btn uc-btn-small uc-btn-blue uc-btn-border">登录</span></a>
+                <a href="{% url 'user:register' %}"><span id="registerBtn"
+                                                          class="uc-btn uc-btn-small uc-btn-blue">注册</span></a>
+                <a href="{% url 'user:logout' %}"><span id="registerBtn" class="uc-btn uc-btn-small uc-btn-blue"
+                                                        style="background-color: #5cb85c">注销</span></a>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+
+
+<link rel="stylesheet" type="text/css" href="/static/css/courseDetail-a98cc33d29.css">
+<link rel="stylesheet" type="text/css" href="/static/css/video-js-e83ffa9176.css">
+<link rel="stylesheet" type="text/css" href="/static/css/pay-57574a366c.css">
+<link rel="stylesheet" href="/static/css/video-js.css">
+<script src="/static/js/video.js"></script>
+<style>
+    .no-credit-mooc {
+        padding: 50px 50px 20px 50px;
+    }
+
+    .no-credit-mooc h2 {
+        margin-bottom: 30px;
+        color: #000;
+    }
+
+    .no-credit-mooc .color-red {
+        color: red
+    }
+
+    .no-credit-mooc .bold {
+        color: #000;
+        font-weight: bold
+    }
+
+    .no-credit-mooc .mooc-item {
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+
+    .no-credit-mooc .btn-group {
+        margin: 0;
+        text-align: center;
+    }
+
+    .no-credit-mooc .btn-group button {
+        width: 120px
+    }
+
+    .video-js .vjs-tech {
+        position: absolute;
+        top: 13%;
+        left: 46px;
+        width: 177%;
+        height: 200%;
+    }
+
+    .vjs-big-play-button {
+        left: 90% !important;
+        top: 125% !important;
+        margin-top: -40px !important;
+        margin-left: -40px !important;
+    }
+
+    .video-js .vjs-control-bar {
+        display: none;
+        width: 100%;
+        position: absolute;
+        bottom: -200px;
+        left: 128px;
+        right: 0;
+        height: 3em;
+        background-color: #2b333f;
+        background-color: rgba(43, 51, 63, .7);
+    }
+</style>
+<script type="text/javascript">
+    window.learnCycleId = 0;
+    window.courseId = 1414226975;
+    window.cycleList = [{
+        "id": 1910136079,
+        "name": "2018\u79cb\u5b63\u5b66\u671f",
+        "start_time": "2018-09-01 00:00:00",
+        "end_time": "2018-12-19 18:23:58",
+        "intro": "",
+        "status": "31",
+        "is_pay": "0",
+        "online": "1",
+        "uc_credit": "2.0",
+        "learn_hours": "30",
+        "type": "10",
+        "open_scope": "20",
+        "attribute": "MOOC",
+        "cycle_title": "2018\u79cb\u5b63\u5b66\u671f\uff082018\/09\/01 - 2018\/12\/19\uff09",
+        "status_name": "\u5f00\u8bfe\u4e2d",
+        "attribute_name": "MOOC\u5b66\u5206\u8bfe",
+        "attribute_key": "MOOC",
+        "weeks": "13\/16"
+    }];
+    window.introVideo = 'http://source4.uooconline.com/course605/最新上传视频/20170919最新上传视频/《沟通技巧》片花视频T.mp4';
+    window.country_boutique = '0';
+    window.courseInfo = {
+        "id": {{ course.id }},
+        "is_delete": "0",
+        "uid": 0,
+        "org_id": "13",
+        "cycle_num": "3",
+        "pass_cycle_num": "0",
+        "learn_cycle_num": "1",
+        "student_num": "3081",
+        "name": "\u6c9f\u901a\u6280\u5de7",
+        "teaching_language": "中文",
+        "intro_video": "http:\/\/source4.uooconline.com\/course605\/\u6700\u65b0\u4e0a\u4f20\u89c6\u9891\/20170919\u6700\u65b0\u4e0a\u4f20\u89c6\u9891\/\u300a\u6c9f\u901a\u6280\u5de7\u300b\u7247\u82b1\u89c6\u9891T.mp4",
+        "intro": "<p><span style=\"font-size: 16px;\">\u00a0 \u00a0 \u5728\u65e5\u5e38\u751f\u6d3b<span style=\"font-family: \u5b8b\u4f53;\">\u548c\u5de5\u4f5c\u4e2d\uff0c\u6c9f\u901a\u548c\u6211\u4eec\u6bcf\u4e2a\u4eba\uff0c\u5982\u5f71\u968f\u884c\uff0c\u5bc6\u4e0d\u53ef\u5206\u3002\u6211\u4eec\u6bcf\u4e2a\u4eba\u7684\u751f\u6d3b\u90fd\u79bb\u4e0d\u5f00\u4e09\u4e2a\u5708\uff1a<span style=\"font-family: \u5b8b\u4f53;\">\u5bb6\u5ead\u5708\u3001\u670b\u53cb\u5708\u548c\u5de5\u4f5c\u5708\u3002\u4e3a\u4ec0\u4e48\u6709\u7684\u5bb6\u7236\u6148\u5b50\u5b5d\u3001\u5e78\u798f\u7f8e\u6ee1\uff1f\u4e3a\u4ec0\u4e48\u6709\u7684\u4eba\u9ad8\u670b\u6ee1\u5ea7\uff0c\u4eba\u89c1\u4eba\u7231\uff1f\u4e3a\u4ec0\u4e48\u6709\u7684\u4eba\u4e8b\u4e1a\u987a\u5229\uff0c\u5e73\u6b65\u9752\u4e91\uff1f<\/span> <span style=\"font-family: \u5b8b\u4f53;\">\u4f17\u591a\u7684\u539f\u56e0\u4e4b\u4e2d\uff0c\u8bb2\u7a76\u6c9f\u901a\u6280\u5de7\u5f53\u5c45\u5934\u529f\uff01<\/span><\/span><\/span><\/p><p><span style=\"font-size: 16px;\">\u00a0 \u00a0\u00a0<span style=\"font-size: 16px; font-family: \u5b8b\u4f53;\">\u53e3\u82e5\u60ac\u6cb3\uff0c\u8bf4\u4e0d\u5230\u70b9\u5b50\u4e0a\uff0c\u4e5f\u53ea\u662f\u5e9f\u8bdd\uff01\u53ea\u8a00\u7247\u8bed\uff0c\u8bf4\u5230\u5fc3\u574e\u91cc\uff0c\u5c31\u662f\u91d1\u7389\u826f\u8a00\uff01\u826f\u8a00\u4e00\u53e5\u4e09\u51ac\u6696\uff0c\u6076\u8bed\u4f24\u4eba\u516d\u6708\u5bd2\u3002\u6c9f\u901a\u662f\u4e00\u95e8\u8bb2\u7b56\u7565\u91cd\u6280\u5de7\u7684\u5b66\u95ee\u3002\u8bf4\u60a6\u8033\u7684\u8bdd\uff0c\u505a\u6696\u5fc3\u7684\u4e8b\u3002\u591a\u4e00\u4e9b\u7406\u89e3\uff0c\u5c11\u4e00\u70b9\u8bef\u4f1a\u3002<\/span><\/span><\/p><p><span style=\"font-size: 16px;\">\u00a0 \u00a0\u00a0<span style=\"font-size: 16px; font-family: \u5b8b\u4f53;\">\u201c\u6c9f\u901a\u6280\u5de7\u201d\u65e2\u662f\u4e00\u95e8\u5b66\u79d1\uff0c\u66f4\u662f\u4e00\u95e8\u827a\u672f\u3002\u201c\u6c9f\u901a\u6280\u5de7\u201d\u8bfe\u7a0b\u91cd\u70b9\u8bad\u7ec3\u548c\u63d0\u5347\u5b66\u751f\u7684\u6c9f\u901a\u6280\u80fd\uff0c\u8ba9\u5b66\u751f\u4f53\u4f1a\u6c9f\u901a\u827a\u672f\u7684\u7cbe\u9ad3\uff0c\u4f7f\u5b66\u751f\u5b66\u4f1a\u6839\u636e\u60c5\u5883\u7684\u53d8\u5316\uff0c\u7075\u6d3b\u8fd0\u7528\u6240\u5b66\u7684\u6c9f\u901a\u7b56\u7565\u548c\u6c9f\u901a\u6280\u5de7\uff0c\u5f97\u5fc3\u5e94\u624b\u5730\u5904\u7406\u751f\u6d3b\u548c\u5de5\u4f5c\u4e2d\u9047\u5230\u7684\u5404\u79cd\u6c9f\u901a\u95ee\u9898\uff0c\u4ece\u800c\u63d0\u9ad8\u751f\u6d3b\u8d28\u91cf\u548c\u5de5<\/span><span style=\"font-family: \u5b8b\u4f53; font-size: 14px;\">\u4f5c\u6548\u7387\uff0c\u5b9e\u73b0\u4eba\u9645\u548c\u8c10\uff0c\u52a9\u529b\u4e8b\u4e1a\u6210\u529f\u3002<\/span><\/span><\/p><p><br\/><\/p>",
+        "app_intro": "<p><span style=\"font-size: 16px;\">\u00a0 \u00a0 \u5728\u65e5\u5e38\u751f\u6d3b<span style=\"font-family: \u5b8b\u4f53;\">\u548c\u5de5\u4f5c\u4e2d\uff0c\u6c9f\u901a\u548c\u6211\u4eec\u6bcf\u4e2a\u4eba\uff0c\u5982\u5f71\u968f\u884c\uff0c\u5bc6\u4e0d\u53ef\u5206\u3002\u6211\u4eec\u6bcf\u4e2a\u4eba\u7684\u751f\u6d3b\u90fd\u79bb\u4e0d\u5f00\u4e09\u4e2a\u5708\uff1a<span style=\"font-family: \u5b8b\u4f53;\">\u5bb6\u5ead\u5708\u3001\u670b\u53cb\u5708\u548c\u5de5\u4f5c\u5708\u3002\u4e3a\u4ec0\u4e48\u6709\u7684\u5bb6\u7236\u6148\u5b50\u5b5d\u3001\u5e78\u798f\u7f8e\u6ee1\uff1f\u4e3a\u4ec0\u4e48\u6709\u7684\u4eba\u9ad8\u670b\u6ee1\u5ea7\uff0c\u4eba\u89c1\u4eba\u7231\uff1f\u4e3a\u4ec0\u4e48\u6709\u7684\u4eba\u4e8b\u4e1a\u987a\u5229\uff0c\u5e73\u6b65\u9752\u4e91\uff1f<\/span> <span style=\"font-family: \u5b8b\u4f53;\">\u4f17\u591a\u7684\u539f\u56e0\u4e4b\u4e2d\uff0c\u8bb2\u7a76\u6c9f\u901a\u6280\u5de7\u5f53\u5c45\u5934\u529f\uff01<\/span><\/span><\/span><\/p><p><span style=\"font-size: 16px;\">\u00a0 \u00a0\u00a0<span style=\"font-size: 16px; font-family: \u5b8b\u4f53;\">\u53e3\u82e5\u60ac\u6cb3\uff0c\u8bf4\u4e0d\u5230\u70b9\u5b50\u4e0a\uff0c\u4e5f\u53ea\u662f\u5e9f\u8bdd\uff01\u53ea\u8a00\u7247\u8bed\uff0c\u8bf4\u5230\u5fc3\u574e\u91cc\uff0c\u5c31\u662f\u91d1\u7389\u826f\u8a00\uff01\u826f\u8a00\u4e00\u53e5\u4e09\u51ac\u6696\uff0c\u6076\u8bed\u4f24\u4eba\u516d\u6708\u5bd2\u3002\u6c9f\u901a\u662f\u4e00\u95e8\u8bb2\u7b56\u7565\u91cd\u6280\u5de7\u7684\u5b66\u95ee\u3002\u8bf4\u60a6\u8033\u7684\u8bdd\uff0c\u505a\u6696\u5fc3\u7684\u4e8b\u3002\u591a\u4e00\u4e9b\u7406\u89e3\uff0c\u5c11\u4e00\u70b9\u8bef\u4f1a\u3002<\/span><\/span><\/p><p><span style=\"font-size: 16px;\">\u00a0 \u00a0\u00a0<span style=\"font-size: 16px; font-family: \u5b8b\u4f53;\">\u201c\u6c9f\u901a\u6280\u5de7\u201d\u65e2\u662f\u4e00\u95e8\u5b66\u79d1\uff0c\u66f4\u662f\u4e00\u95e8\u827a\u672f\u3002\u201c\u6c9f\u901a\u6280\u5de7\u201d\u8bfe\u7a0b\u91cd\u70b9\u8bad\u7ec3\u548c\u63d0\u5347\u5b66\u751f\u7684\u6c9f\u901a\u6280\u80fd\uff0c\u8ba9\u5b66\u751f\u4f53\u4f1a\u6c9f\u901a\u827a\u672f\u7684\u7cbe\u9ad3\uff0c\u4f7f\u5b66\u751f\u5b66\u4f1a\u6839\u636e\u60c5\u5883\u7684\u53d8\u5316\uff0c\u7075\u6d3b\u8fd0\u7528\u6240\u5b66\u7684\u6c9f\u901a\u7b56\u7565\u548c\u6c9f\u901a\u6280\u5de7\uff0c\u5f97\u5fc3\u5e94\u624b\u5730\u5904\u7406\u751f\u6d3b\u548c\u5de5\u4f5c\u4e2d\u9047\u5230\u7684\u5404\u79cd\u6c9f\u901a\u95ee\u9898\uff0c\u4ece\u800c\u63d0\u9ad8\u751f\u6d3b\u8d28\u91cf\u548c\u5de5<\/span><span style=\"font-family: \u5b8b\u4f53; font-size: 14px;\">\u4f5c\u6548\u7387\uff0c\u5b9e\u73b0\u4eba\u9645\u548c\u8c10\uff0c\u52a9\u529b\u4e8b\u4e1a\u6210\u529f\u3002<\/span><\/span><\/p><p><br\/><\/p>",
+        "teaching_objective": "<p><span style=\"font-size: 16px;\">\u00a0 \u00a0\u00a0<span style=\"font-family: \u5b8b\u4f53;\">\u201c\u6c9f\u901a\u6280\u5de7\u201d\u8bfe\u7a0b\u5c06\u901a\u8fc7\u6c9f\u901a\u7406\u8bba\u4ee5\u53ca\u5404\u79cd\u6c9f\u901a\u6280\u5de7\u7684\u8bb2\u6388\uff0c\u91c7\u7528\u591a\u5a92\u4f53\u6559\u5b66\u624b\u6bb5\uff0c\u7ed3\u5408\u5404\u79cd\u6848\u4f8b\u5256\u6790\uff0c\u5524\u9192\u5b66\u751f\u7684\u6c9f\u901a\u610f\u8bc6\uff0c\u57f9\u517b\u5b66\u751f\u826f\u597d\u7684\u6c9f\u901a\u610f\u613f\uff0c\u5feb\u901f\u63d0\u5347\u5b66\u751f\u7684\u6c9f\u901a\u6280\u80fd\u3002<\/span><\/span><\/p><p><br\/><\/p>",
+        "teaching_method": "<p><span style=\"font-size: 16px;\">\u00a0 \u00a0\u00a0<span style=\"font-family: \u5b8b\u4f53;\">\u672c\u8bfe\u7a0b\u91c7\u7528\u7406\u8bba\u8bb2\u6388\uff0c\u6848\u4f8b\u5206\u6790\u548c\u77e5\u8bc6\u70b9\u6d4b\u9a8c\u7b49\u6559\u5b66\u65b9\u6cd5\uff0c\u7ed3\u5408\u5b66\u751f\u7ebf\u4e0a\u81ea\u4e3b\u5b66\u4e60\u548c\u96c6\u4f53\u6848\u4f8b\u8ba8\u8bba\u7b49\u591a\u79cd\u9014\u5f84\uff0c\u5168\u65b9\u4f4d\u5f3a\u5316\u5b66\u751f\u5bf9\u6240\u5b66\u6c9f\u901a\u57fa\u672c\u77e5\u8bc6\u548c\u7b56\u7565\u6280\u5de7\u7684\u7406\u89e3\u548c\u8ba4\u8bc6\uff0c\u6700\u5927\u9650\u5ea6\u5730\u63d0\u9ad8\u6559\u5b66\u6548\u679c\u3002<\/span><\/span><\/p>",
+        "teaching_material": "<p style=\"margin-left:0;text-indent:0\">1\u3001<span style=\"font-family: \u5b8b\u4f53\">\u7ba1\u7406\u6c9f\u901a\uff1a\u7406\u5ff5\u3001\u65b9\u6cd5\u4e0e\u6280\u80fd<\/span>.<span style=\"font-family:\u5b8b\u4f53\">\u5f20\u632f\u521a<\/span> <span style=\"font-family: \u5b8b\u4f53\">\u674e\u4e91\u5065\u7f16\u8457<\/span>.<span style=\"font-family:\u5b8b\u4f53\">\u673a\u68b0\u5de5\u4e1a\u51fa\u7248\u793e<\/span>.2014<\/p><p style=\"margin-left:0;text-indent:0\">2\u3001<span style=\"font-family: \u5b8b\u4f53\">\u5546\u52a1\u6c9f\u901a<\/span>.[<span style=\"font-family:\u5b8b\u4f53\">\u7f8e<\/span>]<span style=\"font-family:\u5b8b\u4f53\">\u57fa\u8482<\/span>.O.<span style=\"font-family:\u5b8b\u4f53\">\u6d1b\u514b\u3001\u65af\u8482\u82ac<\/span>.<span style=\"font-family:\u5b8b\u4f53\">\u4e54<\/span>.<span style=\"font-family:\u5b8b\u4f53\">\u5361\u5947\u9a6c\u83b1\u514b\u8457<\/span>.<span style=\"font-family:\u5b8b\u4f53\">\u845b\u5fd7\u5b8f\u3001\u8521\u5efa\u5b81\u3001\u5b59\u5349\u7b49\u8bd1<\/span>.<span style=\"font-family:\u5b8b\u4f53\">\u4eba\u6c11\u90ae\u7535\u51fa\u7248\u793e<\/span>.2008<\/p><p>3<span style=\"font-family:\u5b8b\u4f53\">\u3001\u5361\u8010\u57fa\uff1a\u8ba9\u4f60\u53d7\u76ca\u4e00\u751f\u7684\u53e3\u624d\u8bfe<\/span>.[<span style=\"font-family:\u5b8b\u4f53\">\u7f8e<\/span>]<span style=\"font-family:\u5b8b\u4f53\">\u6234\u5c14<\/span>.<span style=\"font-family:\u5b8b\u4f53\">\u5361\u8010\u57fa\u8457<\/span>.<span style=\"font-family:\u5b8b\u4f53\">\u5510\u6c76\u7f16\u8bd1<\/span>.<span style=\"font-family:\u5b8b\u4f53\">\u5316\u5b66\u5de5\u4e1a\u51fa\u7248\u793e<\/span>.2012<\/p><p>4<span style=\"font-family:\u5b8b\u4f53\">\u3001\u54c8\u4f5b\u6c9f\u901a\u8bfe<\/span>.<span style=\"font-family:\u5b8b\u4f53\">\u8096\u5189\u7f16\u8457<\/span>.<span style=\"font-family:\u5b8b\u4f53\">\u9f99\u95e8\u4e66\u5c40<\/span>.2011<\/p><p>5<span style=\"font-family:\u5b8b\u4f53\">\u3001\u8bf4\u8bdd\u5fc3\u7406\u5b66<\/span>.<span style=\"font-family:\u5b8b\u4f53\">\u9e3f\u56fe\u7f16\u8457<\/span>.<span style=\"font-family:\u5b8b\u4f53\">\u6d77\u6f6e\u51fa\u7248\u793e<\/span>.2013<\/p><p>6<span style=\"font-family:\u5b8b\u4f53\">\u3001\u7ba1\u7406\u6c9f\u901a\uff1a\u6210\u529f\u7ba1\u7406\u7684\u57fa\u77f3<\/span>.<span style=\"font-family:\u5b8b\u4f53\">\u9b4f\u6c5f<\/span> <span style=\"font-family: \u5b8b\u4f53\">\u4e25\u8fdb\u7f16\u8457<\/span>.<span style=\"font-family:\u5b8b\u4f53\">\u673a\u68b0\u5de5\u4e1a\u51fa\u7248\u793e<\/span>.2015<\/p><p>7<span style=\"font-family:\u5b8b\u4f53\">\u3001\u7ba1\u7406\u6c9f\u901a\uff1a\u77e5\u8bc6\u3001\u601d\u7ef4\u4e0e\u6280\u80fd<\/span>.<span style=\"font-family:\u5b8b\u4f53\">\u7a0b\u8273\u971e\u7f16\u8457<\/span>.<span style=\"font-family:\u5b8b\u4f53\">\u6b66\u6c49\u7406\u5de5\u5927\u5b66\u51fa\u7248\u793e<\/span>.2011<\/p><p>8<span style=\"font-family:\u5b8b\u4f53\">\u3001\u7ba1\u7406\u6c9f\u901a<\/span>.<span style=\"font-family:\u5b8b\u4f53\">\u5eb7\u9752\u7f16\u8457<\/span>.<span style=\"font-family:\u5b8b\u4f53\">\u4e2d\u56fd\u4eba\u6c11\u5927\u5b66\u51fa\u7248\u793e<\/span>.2011<\/p><p>9<span style=\"font-family:\u5b8b\u4f53\">\u3001\u7ba1\u7406\u6c9f\u901a<\/span>.<span style=\"font-family:\u5b8b\u4f53\">\u675c\u6155\u7fa4<\/span> <span style=\"font-family: \u5b8b\u4f53\">\u6731\u4ec1\u5b8f\u7f16\u8457<\/span>.<span style=\"font-family:\u5b8b\u4f53\">\u6e05\u534e\u5927\u5b66\u51fa\u7248\u793e<\/span>.2014<\/p><p>10<span style=\"font-family:\u5b8b\u4f53\">\u3001\u804c\u573a\u5fc5\u61c2\u7684<\/span>80<span style=\"font-family:\u5b8b\u4f53\">\u4e2a\u6c9f\u901a\u7684\u79d8\u5bc6<\/span>.<span style=\"font-family:\u5b8b\u4f53\">\u5b59\u4f1f\u7f16\u8457<\/span>.<span style=\"font-family:\u5b8b\u4f53\">\u4eba\u6c11\u90ae\u7535\u51fa\u7248\u793e<\/span>.2013<\/p><br\/>",
+        "type": "10",
+        "english_name": "Communications Skills",
+        "country_boutique": "0",
+        "type_name": "\u5728\u7ebf\u8bfe\u5802",
+        "teaching_language_name": "\u4e2d\u6587",
+        "cover_img": "http:\/\/assets.uooconline.com\/upload\/uooc-www\/course\/course605\/cover\/170904025334_42f1e9_61c8c582-c0e8-4bf9-bff4-2c180944e960.png",
+        "follow_status": false,
+        "follow_cnt": 130,
+        "teacher_name": "{{ course.teacher.first }}",
+        "teacher_title": "教授",
+        "teacher_org_id": 221111663,
+        "teacher_org_name": "深大",
+        "org_domain": "http:\/\/szu.org.uooconline.com\/league",
+        "learn_cycle_id": 0
+    };
+</script>
+<div class="minh ng-scope" ng-controller="courseDetail" style="margin-top: 80px">
+    <div id="scriptContainer"></div>
+    <!-- 付费周期fixed -->
+    <!-- <div class="courseDetails-footer" ng-if="cycleInfo.is_pay == 1 && cycleInfo.price*1 > 0" ng-cloak>
+        <span class="courseDetails-footer-price" ng-if="cycleInfo.price*1 > 0"><span>￥</span>{{cycleInfo.price}}</span>
+        <span class="courseDetails-footer-price" ng-if="cycleInfo.price*1 <= 0">免费</span>
+        <s>原价：￥{{cycleInfo.cost_price}}</s>
+        <a class="fl_right Btn Btn-orangeBor" ng-if="cycleInfo.paid_status != 1" ng-href="/order/createOrder/goods/{{cycleInfo.id}}/type/10">报名学习</a>
+        <a class="fl_right Btn Btn-orangeBor" ng-if="cycleInfo.paid_status == 1" ng-cloak href="/home/course/{{cycleInfo.id}}" >进入学习</a>
+    </div> -->
+
+    <!-- 课程详情 -->
+    <div class="courseDetails-top">
+        <div class="courseDetails-top-main uwidth clearfix">
+            <div class="vdieo">
+
+                <video id="example_video_1" class="video-js vjs-default-skin" controls preload="none"
+                       data-setup="{}">
+                    <source id='videoMP4' src="http://source3.uooconline.com/course349/video/%E7%A7%AF%E6%9E%81%E5%BF%83%E7%90%86%E5%AD%A6%20%E5%AE%A3%E4%BC%A0%E7%89%8720170817T.mp4
+        " type='video/mp4'/>
+                    <track kind="captions" src="demo.captions.vtt" srclang="en" label="English"></track>
+                    <!-- Tracks need an ending tag thanks to IE9 -->
+                    <track kind="subtitles" src="demo.captions.vtt" srclang="en" label="English"></track>
+                    <!-- Tracks need an ending tag thanks to IE9 -->
+                </video>
+            </div>
+            <div class="info">
+                <div class="courseDTag utip" ng-show="cycleInfo.attribute_name">
+                    <div class="courseDTag-title"><span ng-bind="cycleInfo.attribute_name"
+                                                        class="ng-binding">MOOC学分课</span><i
+                            class="iconfont icon-exclamation"></i></div>
+                    <div class="courseDTag-con utip-panel">
+                        <div>
+                            <h3 class="color-warning">什么是MOOC学分课？</h3>
+                            <p>
+                                MOOC学分课，仅对UOOC联盟内的学校学生开放学习，学生按要求完成在线课程考核后，可根据所在学校规定获得课程相应的比例分数，并计入学生所在学校的学分系统。另外，线上课程考核通过的可申请本课程的结课证书。</p>
+                        </div>
+                        <div style="border-top: 1px solid #e6e6e6; padding-top: 10px; margin-top: 10px;">
+                            <h3 class="color-warning">什么是MOOC公开课？</h3>
+                            <p>MOOC公开课, 面向全社会人士开放, 不提供学分。所有人可学, 学生根据课程教师预设节奏学习, 课程考核通过后课申请获得结课证书。</p>
+                        </div>
+                        <div style="border-top: 1px solid #e6e6e6; padding-top: 10px; margin-top: 10px;">
+                            <h3 class="color-warning">什么是SPOC课程？</h3>
+                            <p>
+                                SPOC课程，即小规模限制性在线课程。针对特定的院校或机构学生开放学习，学生按要求完成课程考核后，可根据所在院校或机构规定获得课程相应的比例分数，并计入学生所在学校的学分系统。</p>
+                        </div>
+                        <div style="border-top: 1px solid #e6e6e6; padding-top: 10px; margin-top: 10px;">
+                            <h3 class="color-warning">什么是第二课堂？</h3>
+                            <p>第二课堂，即优课微专业课程，授人以渔，以职业化道路为最终导向，为学生提供职业岗位群的核心技能培训，并进行项目实践、简历优化、就业指导、推荐实习等一系列的就业人才服务。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-top">
+                    {% load mytags %}
+                    <h1 class="info-title">{{ course.title }}</h1>
+                    <p class="info-title-english">{{ course.english_title }}</p>
+                    <h2 class="info-name">
+                        <a href="http://szu.org.uooconline.com/league" target="_blank">{{ course.school.name }}</a> /
+                        <span>{{ course|get_name }}({{ course|get_position }})</span>
+                    </h2>
+                    <!-- ngIf: cycleInfo.is_pay != 1 -->
+                    <div class="info-box clearfix ng-scope" ng-if="cycleInfo.is_pay != 1">
+                        <div class="info-box-item"><span class="info-box-item-title">开课语种</span>
+                            <p>{{ course.get_language_display }}</p>
+                        </div>
+                        <div class="info-box-item"><span class="info-box-item-title">开课次数</span>
+                            <p>{{ course.frequency }}</p>
+                        </div>
+                        <div class="info-box-item"><span class="info-box-item-title">累计选课</span>
+                            <p>{{ course.total_student }}</p>
+                        </div>
+                    </div><!-- end ngIf: cycleInfo.is_pay != 1 -->
+                </div>
+                <div class="info-bottom clearfix">
+                    <div class="selperiod">
+                        <span class="selperiod-title">选择周期：</span>
+                        <!-- ngIf: !cycleList.length || cycleList[0].status == 40 -->
+                        <!-- ngIf: cycleList.length > 3 -->
+                        <!-- ngIf: cycleList.length -->
+                        <div class="selperiod-list ng-scope" ng-if="cycleList.length">
+                            <!-- ngRepeat: cycle in cycleList --><!-- ngIf: cycle.status != 40 --><span
+                                ng-repeat="cycle in cycleList" ng-if="cycle.status != 40"
+                                ng-class="{active: cycleItem.id == cycle.id, disabled: (cycle.join_status == 0 || cycle.join_status == 3 || cycle.join_status == 5)}"
+                                ng-click="chooseCycle(cycle)" class="selperiod-item oneline ng-binding ng-scope active"
+                                title="2018秋季学期" ng-bind="cycle.name">2018秋季学期</span>
+                            <!-- end ngIf: cycle.status != 40 --><!-- end ngRepeat: cycle in cycleList -->
+                        </div><!-- end ngIf: cycleList.length -->
+                    </div>
+                    <div class="selperiod-info"><!-- ngIf: !!cycleItem.intro --></div>
+                    <!-- <div class="pay-price-course pay-txt-warning" ng-if="cycleInfo.is_pay == 1" ng-cloak style="padding: 10px 0 20px;">
+                        <span class="pay-price-symbol" ng-if="cycleInfo.price*1 > 0">￥</span>
+                        <span class="pay-price-main" ng-if="cycleInfo.price*1 > 0">{{cycleInfo.price}}</span>
+                        <span class="pay-price-main" ng-if="cycleInfo.price*1 <= 0">免费</span>
+                        <span class="pay-price-origin">￥{{cycleInfo.cost_price}}</span>
+                    </div> -->
+                    <!-- ngIf: cycleInfo.is_pay == 1 -->
+                    <div class="clearfix">
+                        <!-- ngIf: !isPreview -->
+                        <div class="selperiod-bottom ng-scope" ng-if="!isPreview">
+                            <!-- ngIf: cycleInfo.join_status == 7 -->
+                            <!-- ngIf: cycleInfo.join_status == 0 -->
+                            <!-- ngIf: cycleInfo.join_status == 1 -->
+                            {% if is_join %}
+                                <span
+                                        class="btn btn-lg info-bottom-btn btn-warning ng-scope"
+                                        ng-if="cycleInfo.join_status == 1" ng-click="joinCourse()">已参加</span>
+                            {% else %}
+                                <a href="{% url 'school:add_course' course.id %}/?status=1">
+                                <span
+                                        class="btn btn-lg info-bottom-btn btn-warning ng-scope"
+                                        ng-if="cycleInfo.join_status == 1" ng-click="joinCourse()">加入课程</span>
+                                </a>
+                            {% endif %}
+
+
+                            <!-- end ngIf: cycleInfo.join_status == 1 -->
+                            <!-- ngIf: cycleInfo.join_status == 2 -->
+                            <!-- ngIf: cycleInfo.join_status == 6 -->
+                            <!-- ngIf: cycleInfo.join_status == 3 -->
+                            <!-- ngIf: cycleInfo.join_status == 4 -->
+                            <!-- ngIf: cycleInfo.join_status == 5 -->
+                            <!-- <p class="period-btn-info" ng-if="cycleInfo.join_status == 5">如果您想加入本期学习，请先退出本课程其他周期</p> -->
+                        </div><!-- end ngIf: !isPreview -->
+
+                        <!-- ngIf: isPreview -->
+
+                        <p class="info-tool" data-tag="share_1">
+
+                            <a href="{% url 'school:add_course' course.id %}?status=2" style="text-decoration: none">
+                                <span class="period-heart " id="followBtn">
+                            <span class="heart">
+                            <span id="floowText">已关注:</span>
+                            <span class="iconfont icon-1"></span>
+                            </span>
+                            <strong id="followCnt"><b class="color-warning">{{ course.favorite_count }}人</b></strong>
+                        </span>
+                            </a>
+
+                            <span class="bdsharebuttonbox bdshare-button-style0-32" data-tag="share_1"
+                                  data-bd-bind="1543391111872">分享:
+                            <a title="分享到QQ空间" href="http://www.uooc.net.cn/course/1414226975#" data-cmd="qzone"
+                               class="iconfont icon-qzone"></a>
+                            <a title="分享到新浪微博" href="http://www.uooc.net.cn/course/1414226975#" data-cmd="tsina"
+                               class="iconfont icon-weibo"></a>
+                            <a title="分享到微信" href="http://www.uooc.net.cn/course/1414226975#" data-cmd="weixin"
+                               class="iconfont icon-wechat"></a>
+                        </span>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 课程周期 -->
+    <!-- ngIf: cycleInfo -->
+    <div id="cycleDetail" class="courseDetails uwidth clearfix fadeIn ng-scope" ng-if="cycleInfo">
+
+        <!-- 周期详情 -->
+        <div class="courseDetails-left">
+            <ul class="mynav clearfix " id="changedisplay">
+                <li to='aaaa'><a href="javascript:;">基本介绍</a></li>
+                <li ng-click="changeTab(&#39;chapter&#39;)" to='courseList'
+                    ng-class="{active: cycleTab == &#39;chapter&#39;}"><a
+                        href="javascript:;">章节目录</a></li>
+                <li ng-click="changeTab(&#39;rules&#39;)" to='pan_2' ng-class="{active: cycleTab == &#39;rules&#39;}"><a
+                        href="javascript:;">考核标准</a></li>
+                <li ng-click="changeTab(&#39;planing&#39;)" to='pan_3'
+                    ng-class="{active: cycleTab == &#39;planing&#39;}"><a
+                        href="javascript:;">教学计划</a></li>
+                <!-- ngIf: cycleInfo.is_pay != 1 -->
+                <li ng-click="changeTab(&#39;orgs&#39;)" to='pan_4' ng-class="{active: cycleTab == &#39;orgs&#39;}"
+                    ng-if="cycleInfo.is_pay != 1" class="ng-scope"><a href="javascript:;">认证情况</a></li>
+                <!-- end ngIf: cycleInfo.is_pay != 1 -->
+            </ul>
+            <div class="tab-content">
+
+                <!-- 课程简介 -->
+                <div class="tab-pane " id='aaaa' ng-show="cycleTab == 'intro'">
+
+                    {% autoescape off %}
+                        {{ course.introduction }}
+                    {% endautoescape %}
+                </div>
+                <!--章节目录-->
+                <div id="courseList" class="tab-pane ng-hide" ng-show="cycleTab == &#39;rules&#39;">
+                    <div class="panel-catalog">
+                        <!-- chapterItem -->
+                        <ul class="rank-1" ng-show="cycleInfo.catalog &amp;&amp; cycleInfo.catalog.length">
+                            <!-- ngRepeat: chapterItem in cycleInfo.catalog -->
+                            {% for chapter in course.chapter_set.all %}
+                                <li ng-repeat="chapterItem in cycleInfo.catalog" class="ng-scope">
+                                    <div class="basic chapter">
+                                <span class="oneline ng-binding">
+{#                                    <!-- ngIf: chapterItem.number --><span ng-if="chapterItem.number"#}
+{#                                                                           class="ng-binding ng-scope">1 </span>#}
+                                    <!-- end ngIf: chapterItem.number -->
+                                    {{ chapter.title }}
+                                </span>
+                                    </div>
+                                    <!-- sectionItem -->
+                                    <ul class="rank-2">
+                                        <!-- ngRepeat: sectionItem in chapterItem.children -->
+                                        {% for video in chapter.video_set.all %}
+                                            <li ng-repeat="sectionItem in chapterItem.children"
+                                                ng-class="{&#39;isTest&#39;: sectionItem.task_id &gt; 0}"
+                                                class="ng-scope">
+                                                <div class="basic">
+                                        <span class="oneline ng-binding">
+                                            <!-- ngIf: chapterItem.number -->
+                                            <!-- end ngIf: chapterItem.number -->
+
+
+
+                                            <a class="bofang" href="#" style="text-decoration: none">{{ video.title }}</a>
+                                        </span>
+                                                </div>
+                                                <!-- pointItem -->
+                                                <!--<ul class="rank-3">
+                                                    <li ng-repeat="pointItem in sectionItem.children">
+                                                        <div class="basic">
+                                                        </div>
+                                                    </li>
+                                                </ul>-->
+                                                <!-- pointItem END-->
+                                            </li>
+                                        {% endfor %}
+
+                                        <!-- end ngRepeat: sectionItem in chapterItem.children -->
+
+                                    </ul>
+                                    <!-- sectionItem END-->
+                                </li>
+                            {% endfor %}
+
+                        </ul>
+                        <div class="empty ng-hide" style="padding: 60px;" ng-show="!cycleInfo.catalog.length">暂无章节</div>
+                        <!-- chapterItem End-->
+                    </div>
+                </div>
+
+                <!--考核标准-->
+                <div class="tab-pane ng-hide" id='pan_2' ng-show="cycleTab == &#39;rules&#39;">
+                    <h3 class="itemTitle">考核方法</h3>
+                    <div class="tbale-border itemContent intro_view">
+                        <p class="ng-binding">本课程授课方式采取闯关模式</p>
+                        <!-- ngIf: cycleInfo.check_rule_intro --><p ng-if="cycleInfo.check_rule_intro"
+                                                                    ng-bind-html="cycleInfo.check_rule_intro | to_trusted"
+                                                                    class="ng-binding ng-scope">
+                        <p><span style="font-family: 宋体;">成绩比重：网上视频（</span>30%<span style="font-family: 宋体;">），观看在线视频至少要完成视频学习的</span>80%<span
+                                style="font-family: 宋体;">才可参加考试；课程测验（</span>10%<span style="font-family: 宋体;">），本课程采取通关式随堂考试方式，每听完一讲需要完成一个随堂作业；平时作业（</span>10%<span
+                                style="font-family: 宋体;">）<span style="font-family: 宋体;">，</span></span><span
+                                style="font-family: 宋体;">除随堂测试外还有二次作业，需要按时完成；访问次数（</span>5%<span
+                                style="font-family: 宋体;">）访问课程网页的次数，达到</span>40<span
+                                style="font-family: 宋体;">次为满分；讨论次数（</span>5%<span style="font-family: 宋体;">，最高</span>100<span
+                                style="font-family: 宋体;">分），在课堂讨论区对问题和综合讨论回复</span>5<span
+                                style="font-family: 宋体;">分</span>/<span style="font-family: 宋体;">条，受到加精</span>20<span
+                                style="font-family: 宋体;">分</span>/<span style="font-family: 宋体;">条或者置顶</span>30<span
+                                style="font-family: 宋体;">分</span>/<span style="font-family: 宋体;">条。期末考试（</span>40<span
+                                style="font-family: 宋体;">分），期末成绩占</span>40%<span style="font-family: 宋体;">。深圳大学教务系统认学分的课程将会设置一次线下考试，深圳大学学生总成绩=线上成绩*70%+线下成绩（包含签到和考试成绩）*30%。其他高校学生是否有线下考试请参考本校教务系统。</span>
+                        </p>
+                        <p><br></p></p><!-- end ngIf: cycleInfo.check_rule_intro -->
+                    </div>
+                    <h3 class="itemTitle">线上计分标准</h3>
+                    <div class="tbale-border itemContent intro_view" style="overflow-x: auto">
+                        <table class="standardTable">
+                            <thead>
+                            <tr>
+                                <th>视频</th>
+                                <th>作业</th>
+                                <th>测验</th>
+                                <th>线上期末考试</th>
+                                <th>讨论</th>
+                                <th>签到</th>
+                                <th>合计</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="ng-binding">30%</td>
+                                <td class="ng-binding">10%</td>
+                                <td class="ng-binding">10%</td>
+                                <td class="ng-binding">40%</td>
+                                <td class="ng-binding">5%</td>
+                                <td class="ng-binding">5%</td>
+                                <td>100%</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <p><span style="color:red;">*</span>&nbsp;视频：每单个视频的观看进度大于90%才算完成，否则该视频不计入已完成视频个数；</p>
+                        <p style="padding-left: 12px;" class="ng-binding">
+                            讨论：发布0分/条，回复5分/条，加精20分/条，置顶30分/条，最高100分，再按权5%折算实际得分；</p>
+                        <p style="padding-left: 12px;" class="ng-binding">签到：累计40次得满分，每日只能签到一次(系统自动记录)。</p>
+                        <p style="padding-left: 12px;" class="ng-binding">视频和测验类任务点完成数达60.0%才能参加考试</p>
+                    </div>
+                </div>
+
+                <!--教学计划-->
+                <div class="tab-pane ng-hide" id='pan_3' ng-show="cycleTab == &#39;planing&#39;">
+                    <!-- ngIf: cycleInfo.teaching_plan -->
+                    <div style="overflow-x: auto" class="tbale-border itemContent intro_view ng-binding ng-scope"
+                         ng-if="cycleInfo.teaching_plan" ng-bind-html="cycleInfo.teaching_plan | to_trusted"><p><br></p>
+                        <table cellspacing="0" cellpadding="0">
+                            <tbody>
+                            <tr class="firstRow">
+                                <td style="border-width: 1px; border-color: black; padding: 0px 7px;" valign="top"
+                                    width="79"><p><span style="font-size:16px;font-family:宋体">进度安排</span></p></td>
+                                <td style="border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-top-color: black; border-right-color: black; border-bottom-color: black; border-left-style: none; padding: 0px 7px;"
+                                    valign="top" width="120"><p><span style="font-size:16px;font-family:宋体">章节</span>
+                                </p></td>
+                                <td style="border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-top-color: black; border-right-color: black; border-bottom-color: black; border-left-style: none; padding: 0px 7px;"
+                                    valign="top" width="453"><p><span style="font-size:16px;font-family:宋体">内容</span>
+                                </p></td>
+                            </tr>
+                            <tr>
+                                <td style="border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-right-color: black; border-bottom-color: black; border-left-color: black; border-top-style: none; padding: 0px 7px;"
+                                    valign="top" width="79"><p><span style="font-size:16px;font-family:宋体">第一周</span>
+                                </p></td>
+                                <td style="border-top-style: none; border-left-style: none; border-bottom-width: 1px; border-bottom-color: black; border-right-width: 1px; border-right-color: black; padding: 0px 7px;"
+                                    valign="top" width="120"><p><span style="font-size:16px;font-family:宋体">沟通概述</span>
+                                </p></td>
+                                <td style="border-top-style: none; border-left-style: none; border-bottom-width: 1px; border-bottom-color: black; border-right-width: 1px; border-right-color: black; padding: 0px 7px;"
+                                    valign="top" width="459"><p><span style="font-size:16px;font-family:宋体">沟通的定义与内涵、沟通的巨大威力、沟通的过程、成功沟通的三大要素、沟通的类型</span>
+                                </p></td>
+                            </tr>
+                            <tr>
+                                <td style="border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-right-color: black; border-bottom-color: black; border-left-color: black; border-top-style: none; padding: 0px 7px;"
+                                    valign="top" width="79"><p><span style="font-size:16px;font-family:宋体">第二周</span>
+                                </p></td>
+                                <td style="border-top-style: none; border-left-style: none; border-bottom-width: 1px; border-bottom-color: black; border-right-width: 1px; border-right-color: black; padding: 0px 7px;"
+                                    valign="top" width="120"><p><span
+                                        style="font-size:16px;font-family:宋体">沟通的基本理论</span></p></td>
+                                <td style="border-top-style: none; border-left-style: none; border-bottom-width: 1px; border-bottom-color: black; border-right-width: 1px; border-right-color: black; padding: 0px 7px;"
+                                    valign="top" width="459"><p><span style="font-size:16px;font-family:宋体">沟通漏斗理论、沟通的冰山模型、有效反馈</span>
+                                </p></td>
+                            </tr>
+                            <tr>
+                                <td style="border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-right-color: black; border-bottom-color: black; border-left-color: black; border-top-style: none; padding: 0px 7px;"
+                                    valign="top" width="79"><p><span style="font-size:16px;font-family:宋体">第三周</span>
+                                </p></td>
+                                <td style="border-top-style: none; border-left-style: none; border-bottom-width: 1px; border-bottom-color: black; border-right-width: 1px; border-right-color: black; padding: 0px 7px;"
+                                    valign="top" width="120"><p><span
+                                        style="font-size:16px;font-family:宋体">沟通主体策略</span></p></td>
+                                <td style="border-top-style: none; border-left-style: none; border-bottom-width: 1px; border-bottom-color: black; border-right-width: 1px; border-right-color: black; padding: 0px 7px; word-break: break-all;"
+                                    valign="top" width="459"><p><span style="font-size:16px;font-family:宋体">沟通主体概述及分析、沟通主体的策略选择、自我沟通与自我暗示</span>
+                                </p></td>
+                            </tr>
+                            <tr>
+                                <td style="border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-right-color: black; border-bottom-color: black; border-left-color: black; border-top-style: none; padding: 0px 7px;"
+                                    valign="top" width="79"><p><span style="font-size:16px;font-family:宋体">第四周</span>
+                                </p></td>
+                                <td style="border-top-style: none; border-left-style: none; border-bottom-width: 1px; border-bottom-color: black; border-right-width: 1px; border-right-color: black; padding: 0px 7px;"
+                                    valign="top" width="120"><p><span
+                                        style="font-size:16px;font-family:宋体">沟通客体策略</span></p></td>
+                                <td style="border-top-style: none; border-left-style: none; border-bottom-width: 1px; border-bottom-color: black; border-right-width: 1px; border-right-color: black; padding: 0px 7px;"
+                                    valign="top" width="459"><p><span style="font-size:16px;font-family:宋体">沟通客体的定义和分析、沟通客体策略</span>
+                                </p></td>
+                            </tr>
+                            <tr>
+                                <td style="border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-right-color: black; border-bottom-color: black; border-left-color: black; border-top-style: none; padding: 0px 7px;"
+                                    valign="top" width="79"><p><span style="font-size:16px;font-family:宋体">第五周</span>
+                                </p></td>
+                                <td rowspan="2"
+                                    style="border-top-style: none; border-left-style: none; border-bottom-width: 1px; border-bottom-color: black; border-right-width: 1px; border-right-color: black; padding: 0px 7px;"
+                                    valign="top" width="120"><p><span
+                                        style="font-size:16px;font-family:宋体">沟通信息策略</span></p></td>
+                                <td rowspan="2"
+                                    style="border-top-style: none; border-left-style: none; border-bottom-width: 1px; border-bottom-color: black; border-right-width: 1px; border-right-color: black; padding: 0px 7px; word-break: break-all;"
+                                    valign="top" width="459"><p style="margin-top:10px"><span
+                                        style="font-size:16px;font-family:宋体">信息的组织策略、信息表达的七大原则、信息表达的策略</span></p>
+                                    <p><span style="font-size:16px">&nbsp;</span></p></td>
+                            </tr>
+                            <tr>
+                                <td style="border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-right-color: black; border-bottom-color: black; border-left-color: black; border-top-style: none; padding: 0px 7px;"
+                                    valign="top" width="79"><p><span style="font-size:16px;font-family:宋体">第六周</span>
+                                </p></td>
+                            </tr>
+                            <tr>
+                                <td style="border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-right-color: black; border-bottom-color: black; border-left-color: black; border-top-style: none; padding: 0px 7px;"
+                                    valign="top" width="79"><p><span style="font-size:16px;font-family:宋体">第七周</span>
+                                </p></td>
+                                <td style="border-top-style: none; border-left-style: none; border-bottom-width: 1px; border-bottom-color: black; border-right-width: 1px; border-right-color: black; padding: 0px 7px;"
+                                    valign="top" width="120"><p><span
+                                        style="font-size:16px;font-family:宋体">沟通渠道策略</span></p></td>
+                                <td style="border-top-style: none; border-left-style: none; border-bottom-width: 1px; border-bottom-color: black; border-right-width: 1px; border-right-color: black; padding: 0px 7px;"
+                                    valign="top" width="459"><p style="margin-top:10px"><span
+                                        style="font-size:16px;font-family:宋体">沟通渠道的类型、沟通渠道分析、沟通渠道的选择和组合</span></p></td>
+                            </tr>
+                            <tr>
+                                <td style="border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-right-color: black; border-bottom-color: black; border-left-color: black; border-top-style: none; padding: 0px 7px;"
+                                    valign="top" width="79"><p><span style="font-size:16px;font-family:宋体">第八周</span>
+                                </p></td>
+                                <td style="border-top-style: none; border-left-style: none; border-bottom-width: 1px; border-bottom-color: black; border-right-width: 1px; border-right-color: black; padding: 0px 7px;"
+                                    valign="top" width="120"><p><span style="font-size:16px;font-family:宋体">倾听技巧</span>
+                                </p></td>
+                                <td style="border-top-style: none; border-left-style: none; border-bottom-width: 1px; border-bottom-color: black; border-right-width: 1px; border-right-color: black; padding: 0px 7px;"
+                                    valign="top" width="459"><p
+                                        style="margin-top:10px;margin-bottom:   0;margin-left:0;margin-bottom:0"><span
+                                        style="font-size:16px;font-family:宋体">倾听比说话重要、影响倾听效果的因素、提高倾听效果的技巧</span></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-right-color: black; border-bottom-color: black; border-left-color: black; border-top-style: none; padding: 0px 7px;"
+                                    valign="top" width="79"><p><span style="font-size:16px;font-family:宋体">第九周</span>
+                                </p></td>
+                                <td rowspan="2"
+                                    style="border-top-style: none; border-left-style: none; border-bottom-width: 1px; border-bottom-color: black; border-right-width: 1px; border-right-color: black; padding: 0px 7px;"
+                                    valign="top" width="120"><p><span style="font-size:16px;font-family:宋体">说话技巧</span>
+                                </p></td>
+                                <td rowspan="2"
+                                    style="border-top-style: none; border-left-style: none; border-bottom-width: 1px; border-bottom-color: black; border-right-width: 1px; border-right-color: black; padding: 0px 7px;"
+                                    valign="top" width="459"><p
+                                        style="margin-top:8px;margin-bottom:auto;margin-bottom:auto"><span
+                                        style="font-size:   16px;font-family:宋体">说服技巧、演讲技巧、会议技巧</span></p></td>
+                            </tr>
+                            <tr>
+                                <td style="border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-right-color: black; border-bottom-color: black; border-left-color: black; border-top-style: none; padding: 0px 7px;"
+                                    valign="top" width="79"><p><span style="font-size:16px;font-family:宋体">第十周</span>
+                                </p></td>
+                            </tr>
+                            <tr>
+                                <td style="border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-right-color: black; border-bottom-color: black; border-left-color: black; border-top-style: none; padding: 0px 7px;"
+                                    valign="top" width="79"><p><span style="font-size:16px;font-family:宋体">第十一周</span>
+                                </p></td>
+                                <td rowspan="2"
+                                    style="border-top-style: none; border-left-style: none; border-bottom-width: 1px; border-bottom-color: black; border-right-width: 1px; border-right-color: black; padding: 0px 7px;"
+                                    valign="top" width="120"><p><span
+                                        style="font-size:16px;font-family:宋体">人际沟通技巧</span></p></td>
+                                <td rowspan="2"
+                                    style="border-top-style: none; border-left-style: none; border-bottom-width: 1px; border-bottom-color: black; border-right-width: 1px; border-right-color: black; padding: 0px 7px; word-break: break-all;"
+                                    valign="top" width="453"><p style="margin-top:10px"><span
+                                        style="font-size:16px;font-family:宋体">人际沟通的含义及类型、人际沟通的建立、人际沟通的维持、人际冲突的产生与处理</span>
+                                </p></td>
+                            </tr>
+                            <tr>
+                                <td style="border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-right-color: black; border-bottom-color: black; border-left-color: black; border-top-style: none; padding: 0px 7px;"
+                                    valign="top" width="79"><p><span style="font-size:16px;font-family:宋体">第十二周</span>
+                                </p></td>
+                            </tr>
+                            <tr>
+                                <td style="border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-right-color: black; border-bottom-color: black; border-left-color: black; border-top-style: none; padding: 0px 7px;"
+                                    valign="top" width="73"><p><span style="font-size:16px;font-family:宋体">第十三周</span>
+                                </p></td>
+                                <td rowspan="2"
+                                    style="border-top-style: none; border-left-style: none; border-bottom-width: 1px; border-bottom-color: black; border-right-width: 1px; border-right-color: black; padding: 0px 7px;"
+                                    valign="top" width="120"><p><span
+                                        style="font-size:16px;font-family:宋体">职场沟通技巧</span></p></td>
+                                <td rowspan="2"
+                                    style="border-top-style: none; border-left-style: none; border-bottom-width: 1px; border-bottom-color: black; border-right-width: 1px; border-right-color: black; padding: 0px 7px;"
+                                    valign="top" width="459"><p
+                                        style="margin-top:10px;margin-bottom:   0;margin-left:0;margin-bottom:0"><span
+                                        style="font-size:16px;font-family:宋体">顺利通过面试的技巧、赢得上级赏识的技巧、与同事和谐共处的技巧、上级取得下属信任的技巧</span>
+                                </p></td>
+                            </tr>
+                            <tr>
+                                <td style="border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-right-color: black; border-bottom-color: black; border-left-color: black; border-top-style: none; padding: 0px 7px;"
+                                    valign="top" width="79"><p><span style="font-size:16px;font-family:宋体">第十四周</span>
+                                </p></td>
+                            </tr>
+                            <tr>
+                                <td style="border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-right-color: black; border-bottom-color: black; border-left-color: black; border-top-style: none; padding: 0px 7px;"
+                                    valign="top" width="79"><p><span style="font-size:16px;font-family:宋体">第十五周</span>
+                                </p></td>
+                                <td style="border-top-style: none; border-left-style: none; border-bottom-width: 1px; border-bottom-color: black; border-right-width: 1px; border-right-color: black; padding: 0px 7px;"
+                                    valign="top" width="120"><p><span
+                                        style="font-size:16px;font-family:宋体">跨文化沟通技巧</span></p></td>
+                                <td style="border-top-style: none; border-left-style: none; border-bottom-width: 1px; border-bottom-color: black; border-right-width: 1px; border-right-color: black; padding: 0px 7px; word-break: break-all;"
+                                    valign="top" width="459"><p
+                                        style="margin-top:10px;margin-bottom:   0;margin-left:0;margin-bottom:0"><span
+                                        style="font-size:16px;font-family:宋体">文化与跨文化沟通、影响跨文化沟通的因素、跨文化沟通的技巧</span></p>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div><!-- end ngIf: cycleInfo.teaching_plan -->
+                    <!-- ngIf: !cycleInfo.teaching_plan -->
+                </div>
+                <!--教学计划 END-->
+                <!--认证情况-->
+                <div class="tab-pane ng-hide" id='pan_4' ng-show="cycleTab == &#39;orgs&#39;">
+                    <div class="tbale-border itemContent intro_view" style="overflow-x: auto">
+                        <!-- ngIf: cycleInfo.certify_list.length -->
+                        <div class="clearfix ng-scope" ng-if="cycleInfo.certify_list.length">
+                            <p class="ng-binding">此课程已被以下2所高校认证为学分课：</p>
+                            <!-- ngRepeat: orgItem in cycleInfo.certify_list --><a
+                                ng-repeat="orgItem in cycleInfo.certify_list"
+                                href="http://1071339160.org.uooconline.com/league" target="_blank" title="安徽建筑大学"
+                                class="school ng-scope"
+                                style="background-image:url(http://assets.uooconline.com/upload/2017/03/03/0e70ee7aa1a5692e.jpg);"></a>
+                            <!-- end ngRepeat: orgItem in cycleInfo.certify_list --><a
+                                ng-repeat="orgItem in cycleInfo.certify_list"
+                                href="http://934517845.org.uooconline.com/league" target="_blank" title="厦门理工学院"
+                                class="school ng-scope"
+                                style="background-image:url(http://assets.uooconline.com/upload/2017/03/03/238af21c6839acc4.jpg);"></a>
+                            <!-- end ngRepeat: orgItem in cycleInfo.certify_list -->
+                        </div><!-- end ngIf: cycleInfo.certify_list.length -->
+                        <!-- ngIf: !cycleInfo.certify_list.length -->
+                    </div>
+                </div>
+                <!--认证情况 END-->
+            </div>
+        </div>
+
+        <!-- 周期团队 -->
+        <div class="courseDetails-right">
+            <!--周期-->
+            <div class="period">
+                <div class="period-title"><span class="ng-binding">2018秋季学期</span></div>
+                <div class="period-item"><span>开课时间：</span><span class="ng-binding">{{ course.start_time|date:'Y/m/d' }} - {{ course.end_time|date:'Y/m/d' }}</span>
+                </div>
+                <div class="period-item"><span>建议学分：</span><span class="ng-binding">{{ course.credit }}分</span></div>
+                <div class="period-item"><span>建议学时：</span><span class="ng-binding">{{ course.period }}学时</span></div>
+                <div class="period-item"><span>教学模式：</span><span
+                        class="ng-binding">{{ course.get_teaching_mode_display }}</span></div>
+            </div>
+            <!--周期 END-->
+            <!--团队-->
+            <div class="teams">
+                <div class="teams-title">教学团队</div>
+                <!-- ngRepeat: member in cycleInfo.team -->
+                {% for teacher in course.teacher.all %}
+                    <div class="teams-container clearfix utip ng-scope" ng-repeat="member in cycleInfo.team">
+                        <div class="teams-container-img">
+                            <img ng-src="http://assets.uooconline.com/upload/uooc-www/course/course890/avatar/170820124533_46fb82_170820084829_c35e6a_a412a962-7e3f-4821-8b7d-c6ac971bd84d.png"
+                                 src="/media/{{ teacher.avatar }}">
+                        </div>
+                        <div class="teams-container-info">
+                            <h2 class="ng-binding">{{ teacher.name }}</h2>
+                            <p class="ng-binding">{{ teacher.get_position_display }}</p>
+                            <p title="深圳大学" class="ng-binding">{{ teacher.school }}</p>
+                        </div>
+                        <div class="utip-panel teams-container-intro">
+                            <div class="teams-container-intro-div ng-binding">
+                                {{ teacher.introduce }}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+
+            </div>
+        </div><!-- end ngIf: cycleInfo -->
+
+        <!-- 无周期 -->
+        <!-- ngIf: !cycleInfo -->
+
+        <div class="footermap"></div>
+
+
+        <!-- mooc公开课无学分弹框内容 -->
+        <div id="no-credit-mooc" style="display:none">
+            <div class="no-credit-mooc">
+                <h2>同学，你当前选择的是MOOC公开课类型，MOOC公开课<span class="color-red">不提供学分</span>, 如果需要修学分, 请选择MOOC学分课学期或者SPOC课程类型。
+                </h2>
+                <p class="mooc-item"><span class="bold">MOOC学分课</span>，仅对UOOC联盟内的学校学生开放学习，学生按要求完成在线课程考核后，可根据所在学校规定获得课程相应的比例分数，并计入学生所在学校的学分系统。另外，线上课程考核通过的可申请本课程的结课证书。
+                </p>
+                <p class="mooc-item"><span class="bold">MOOC公开课</span>， 面向全社会人士开放, 不提供学分。所有人可学, 学生根据课程教师预设节奏学习,
+                    课程考核通过后可申请获得结课证书。</p>
+                <p class="mooc-item"><span class="bold">SPOC课程</span>，即小规模限制性在线课程。针对特定的院校或机构学生开放学习，学生按要求完成课程考核后，可根据所在院校或机构规定获得课程相应的比例分数，并计入学生所在学校的学分系统。
+                </p>
+                <div style="margin-top:40px;margin-bottom:50px">
+                    <input type="checkbox" id="hasResd" ng-model="hasResd" ng-click="clickHasResd()"
+                           class="ng-pristine ng-untouched ng-valid ng-empty">
+                    <label for="hasResd" ng-click="clickHasResd()">我已知悉当前选择的课程类型</label>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-default" ng-click="closeLayer()" type="button" style="margin-right:40px">取消
+                    </button>
+                    <button class="btn btn-warning" ng-click="addCourse()" ng-disabled="!hasResd" disabled="disabled">
+                        确定选课
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- layout-footer -->
+    <div class="layout-footer">
+        <div class="layout-wrapper clearfix">
+            <div class="footer-mod">
+                <a class="logo" href="http://www.uooconline.com/"></a>
+            </div>
+            <div class="footer-mod">
+                <ul class="footer-nav clearfix">
+                    <li>
+                        <a href="http://www.uooc.net.cn/league/union/intro#contact">关于我们</a>
+                    </li>
+                    <li>
+                        <a href="http://www.uooc.net.cn/misc/provision">服务条款</a>
+                    </li>
+
+
+                    <li>
+                        <a href="http://www.uooconline.com/org-admin" target="_blank">机构管理</a>
+                    </li>
+                    <li>
+                        <a href="http://www.uooc.net.cn/index/disclaimer">免责声明</a>
+                    </li>
+                </ul>
+
+
+                <p class="copyright">
+                    <a class="copyright-link" href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备16050337号-1</a>
+                    <span style="margin: 0 5px;">|</span>
+                    <a class="copyright-link" target="_blank"
+                       href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030502001269">
+                        <span class="copyright-logo"></span>粤公网安备 44030502001269号
+                    </a>
+                    <span style="margin: 0 5px;">|</span>
+                    <a class="copyright-link" target="_blank" href="http://www.uooc.net.cn/misc/valicense">增值电信业务经营许可证B2-20173213</a>
+                </p>
+                <p class="copyright-msg">Copyright © 2015-
+                    2018深圳市优课在线教育有限公司
+                    (优课联盟) </p>
+            </div>
+            <div class="footer-mod footer-server">
+                <a class="footer-server-qq" href="http://www.uooc.net.cn/index/service"><i class="iconfont icon-qq"></i>在线QQ客服</a>
+                <p class="service-time">客服工作时间：周一至周五 09:30-18:30</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 浮动功能菜单 -->
+    <div class="layout-app-funs">
+        <div class="app-funs" onclick="window.scrollTo(0,0);">
+            <span class="app-funs-icon icon iconfont icon-top"></span>
+            <span class="app-funs-txt app-funs-backtop"></span>
+        </div>
+        <div class="app-funs" id="uoochelp">
+            <span class="app-funs-icon icon iconfont icon-wenhao"></span>
+            <a class="app-funs-txt" href="http://www.uooc.net.cn/misc/support">优课<br>帮帮</a>
+        </div>
+        <div class="app-funs">
+            <span class="app-funs-icon icon iconfont icon-qq1"></span>
+            <a class="app-funs-txt" href="http://www.uooc.net.cn/index/service">在线<br>咨询</a>
+        </div>
+    </div>
+
+    <!-- 浏览器版本 -->
+    <div id="bishiie-container" style="display: none;">
+        <div id="bishiie">
+            <h1>您的浏览器版本过低，请升级后再试！</h1>
+            <h2>为获得最佳浏览体验，建议您升级或选用以下浏览器。</h2>
+            <div style="margin:30px auto;width:800px">
+                <a class="browse bs360" title="360安全浏览器" target="_blank" href="http://se.360.cn/">
+                    <p>360安全浏览器</p>
+                </a>
+                <a class="browse bsff" title="火狐浏览器" target="_blank" href="http://www.firefox.com.cn/">
+                    <p>火狐浏览器</p>
+                </a>
+                <a class="browse bschrome" title="谷歌chrome浏览器" target="_blank"
+                   href="https://www.baidu.com/s?ie=utf-8&amp;f=8&amp;rsv_bp=1&amp;rsv_idx=1&amp;tn=baidu&amp;wd=%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8&amp;oq=%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8&amp;rsv_pq=be6cba4c0000413e&amp;rsv_t=e7f7piiP15vapmOCh9Pnni4jjbWUai6Y3KjM4hWNRkrV47pzsTY1KeYuCeo&amp;rqlang=cn&amp;rsv_enter=0">
+                    <p>谷歌浏览器</p>
+                </a>
+                <a class="browse bsie" title="IE浏览器" target="_blank"
+                   href="https://www.baidu.com/s?wd=ie10&amp;ie=UTF-8">
+                    <p>IE10+浏览器</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!--[if lte IE 9]>
+    <script type="text/javascript">
+        document.getElementsByTagName("body")[0].innerHTML=document.getElementById("bishiie-container").innerHTML
+    </script>
+<![endif]-->
+
+    <script type="text/javascript">
+        var isTeacherPage = location.href.search('/teacher/manage/course') > -1;
+        if (isTeacherPage) document.getElementById('uoochelp').style.display = 'none';
+    </script>
+    <script>
+        $('.bofang').click(
+            function () {
+                var myPlayer = videojs('example_video_1');
+        videojs("example_video_1").ready(function () {
+            var myPlayer = this;
+            myPlayer.play();
+        });
+            }
+        )
+
+
+        window.NVC_Opt = {
+            appkey: 'FFFF0N00000000006409',
+            scene: 'ic_register',
+            renderTo: '#captcha',
+            trans: {"key1": "code0", "nvcCode": 200},
+            elements: [
+                '//img.alicdn.com/tfs/TB17cwllsLJ8KJjy0FnXXcFDpXa-50-74.png',
+                '//img.alicdn.com/tfs/TB17cwllsLJ8KJjy0FnXXcFDpXa-50-74.png'
+            ],
+            bg_back_prepared: '//img.alicdn.com/tps/TB1skE5SFXXXXb3XXXXXXXXXXXX-100-80.png',
+            bg_front: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABQCAMAAADY1yDdAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAADUExURefk5w+ruswAAAAfSURBVFjD7cExAQAAAMKg9U9tCU+gAAAAAAAAAIC3AR+QAAFPlUGoAAAAAElFTkSuQmCC',
+            obj_ok: '//img.alicdn.com/tfs/TB1rmyTltfJ8KJjy0FeXXXKEXXa-50-74.png',
+            bg_back_pass: '//img.alicdn.com/tfs/TB1KDxCSVXXXXasXFXXXXXXXXXX-100-80.png',
+            obj_error: '//img.alicdn.com/tfs/TB1q9yTltfJ8KJjy0FeXXXKEXXa-50-74.png',
+            bg_back_fail: '//img.alicdn.com/tfs/TB1w2oOSFXXXXb4XpXXXXXXXXXX-100-80.png',
+            upLang: {
+                "cn": {
+                    _ggk_guide: "请摁住鼠标左键，刮出两面盾牌",
+                    _ggk_success: "恭喜您成功刮出盾牌<br/>继续下一步操作吧",
+                    _ggk_loading: "加载中",
+                    _ggk_fail: ['呀，盾牌不见了<br/>请', "javascript:noCaptcha.reset()", '再来一次', '或', "http://survey.taobao.com/survey/QgzQDdDd?token=%TOKEN", '反馈问题'],
+                    _ggk_action_timeout: ['我等得太久啦<br/>请', "javascript:noCaptcha.reset()", '再来一次', '或', "http://survey.taobao.com/survey/QgzQDdDd?token=%TOKEN", '反馈问题'],
+                    _ggk_net_err: ['网络实在不给力<br/>请', "javascript:noCaptcha.reset()", '再来一次', '或', "http://survey.taobao.com/survey/QgzQDdDd?token=%TOKEN", '反馈问题'],
+                    _ggk_too_fast: ['您刮得太快啦<br/>请', "javascript:noCaptcha.reset()", '再来一次', '或', "http://survey.taobao.com/survey/QgzQDdDd?token=%TOKEN", '反馈问题']
+                }
+            }
+        }
+    </script>
+    <script src="/static/js/guide.js"></script>
+    <script src="/static/js/index.js"></script>
+
+
+    <script type="text/javascript" src="/static/js/video.js"></script>
+    <script type="text/javascript" src="/static/js/videojs-contrib-hls.js"></script>
+    <script type="text/javascript" src="/static/js/videoService-03f8e71579.js"></script>
+    <script type="text/javascript" src="/static/js/uoocVideo-31666f9275.js"></script>
+    <script type="text/javascript" src="/static/js/detail-13c404c1a3.js"></script>
+    <script sync="">
+
+        $('#changedisplay li').click(function () {
+            pan_id = $(this).attr('to');
+            $('.tab-pane').each(
+                function () {
+                    $(this).addClass('ng-hide')
+                }
+            );
+            $('#' + pan_id).removeClass('ng-hide')
+        });
+
+        $(document).ready(function () {
+            $(window).scroll(function () {
+                setFixed();
+            });
+
+            setFixed();
+
+            function setFixed() {
+                var fTop = $(".footermap").offset().top;
+                var sTop = $(this).scrollTop() + $(this).height();
+                if (sTop >= fTop) {
+                    $(".courseDetails-footer").addClass("nofixed");
+                } else {
+                    $(".courseDetails-footer").removeClass("nofixed");
+                }
+            }
+        });
+
+        window._bd_share_config = {
+            "common": {
+                "bdSnsKey": {},
+                "bdText": "沟通技巧",
+                "bdDesc": "在优课在线找到一门好课《沟通技巧》，都来看看吧！",
+                "bdMini": "1",
+                "bdMiniList": false,
+                "bdPic": "http://assets.uooconline.com/upload/uooc-www/course/course605/cover/170904025334_42f1e9_61c8c582-c0e8-4bf9-bff4-2c180944e960.png",
+                "bdStyle": "0",
+                "bdSize": "32"
+            },
+            "share": {}
+        };
+        with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/jsshare.jsv=89860593.jscdnversion=' + ~(-new Date() / 36e5)];
+    </script>
+
+    <div class="layui-layer-move"></div>
+
+</body>
+</html>

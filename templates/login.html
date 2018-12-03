@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>优课联盟——共建共享，学分互认</title>
+    <link rel="shortcut icon"
+          href="http://assets.uooconline.com/upload/uooc-www/org/logo/2018/11/05/181105103907_650ac3_uooclogo1.png"
+          type="image/x-icon">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/login.css">
+    <script src="/static/js/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="container" style="margin-top: 100px; padding: 0">
+    <div class="row col-md-offset-3 col-md-6">
+        <div class="panel panel-info">
+            <div class="panel-heading text-center"> <h3> 登录</h3></div>
+            <div class="panel-body">
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="username">  账号</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="用户名/手机/邮箱"
+                               style="margin-left: 0"
+                               value="{{ username }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">密码</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" name="password"
+                               style="margin-left: 0"
+                               placeholder="密码">
+                    </div>
+                    <div class="form-group">
+                        <label for="v-code">验证码</label>
+                        <div class="row col-md-offset-1">
+                            <input type="text" class="col-md-4 " name="code" id="v-code">
+                            <img src="/get_code" id="v-code-img" class=" col-md-7">
+                        </div>
+                    </div>
+                    <p id="error_msg" style="color: red">{{ error_msg }}</p>
+                    <div style="margin: 20px 100px">
+                        <input type="submit" class="btn btn-primary login-btn" value="登录" style="width: 100px">
+                        <a href="{% url 'user:register' %}"><input type="button" class="btn btn-warning  login-btn"
+                                                                   style="width: 50px" value="注册"></a>
+                        <a href="">忘记密码</a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+
+
+<script>
+    $('img').click(function () {
+        let old_src = $(this).attr('src');
+        let new_src = old_src + '?';
+        $(this).attr('src', new_src)
+
+    });
+    $('input').focus(
+        function () {
+            $('#error_msg').text('')
+        }
+    );
+
+    $('#username').val("{{ username }}")
+</script>
+</body>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)http://www.uooc.net.cn/league/union/intro -->
+<html lang="en">
+<head>
+    {% block link %}
+
+    {% endblock %}
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=1280">
+    <!--<meta name="_xsrf" content="">-->
+    <meta name="layoutmode" content="standard">
+    <meta name="imagemode" content="force">
+    <title>优课联盟——共建共享，学分互认</title>
+    {% load staticfiles %}
+    <meta name="Keywords" content="优课,优课在线,慕课,mooc,优课联盟,深大,深圳大学,在线教育,高等教育,继续教育,首批国家精品课申报平台">
+    <meta name="Description" content="优课在线是新一代互联网自主学习平台，可为用户提供MOOC，混合式学习及SPOC学习方式。">
+    <link rel="shortcut icon"
+          href="http://assets.uooconline.com/upload/uooc-www/org/logo/2018/11/05/181105103907_650ac3_uooclogo1.png"
+          type="image/x-icon">
+    <link rel="search" type="application/opensearchdescription+xml" href="http://assets.uooconline.com/search.xml"
+          title="优课">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/iconfont-0645ae236e.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/public-4dfc0b3d0b.css' %}">
+
+    <script src="{% static 'js/hm.js' %}"></script>
+    <script type="text/javascript">
+        (function () {
+            // 全局
+            window.isLogin = "";
+            window.staticRoot = "//assets.uooconline.com";
+            window.webRoot = "http://www.uooc.net.cn";
+
+            // 移动端进入跳转到APP下载页面
+            var USER_AGENT = navigator.userAgent;
+            var AGENTS = ['Android', 'iPhone', 'SymbianOS', 'Windows Phone', 'iPad', 'iPod'];
+            for (var v = 0; v < AGENTS.length; v++) {
+                if (USER_AGENT.search(AGENTS[v]) != -1) {
+                    location.href = "/app/download"
+                    break;
+                }
+            }
+
+            // 百度统计
+            var hm = document.createElement("script");
+            var curHref = location.href;
+            var baiduHash = curHref.search('api.uooc.online') > -1 ? 'b4444460a6edf29501337cf2c90555cc' : curHref.search('abc.org-beta.uooconline.com') > -1 ? '30a1929a34bfc7398f8dcef943f7e1b8' : curHref.search('beta.uooconline.com') > -1 ? '1c4aa021265744d2b8f0a9a59c3866c9' : curHref.search('uooc.net.cn') > -1 ? 'd1a5821d95582e27154fc4a1624da9e3' : '7c307a902207c45c0eaf86510e2c24a1';
+            hm.src = '//hm.baidu.com/hm.js?' + baiduHash;
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/layer.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/layer.css' %}" id="layui_layer_skinlayercss" style="">
+    <script type="text/javascript" src="{% static 'js/base-f04329c2b8.js' %}"></script>
+
+</head>
+
+<body>
+
+
+<div id="layout-header" class="layout-header layout-header-fixed">
+    <div class="layout-wrapper clearfix">
+        <a href="http://www.uooc.net.cn/" class="layout-header-logo">
+            <img src="{% static 'img/181105102853_356892_优课联盟logo.png' %}">
+        </a>
+        <!-- 导航菜单 -->
+        <ul class="layout-header-nav">
+            <li>
+                <a class=" " href="{% url 'index' %}">
+                    首页 </a>
+            </li>
+            <li>
+                <a class=" " href="{% url 'course_list' %}">
+                    课程 </a>
+            </li>
+            <li>
+                <a class=" " href="{% url 'org_list' %}">
+                    联盟院校 </a>
+            </li>
+            <li>
+                <a class="active " href="{% url 'about' %}">
+                    关于我们 </a>
+            </li>
+        </ul>
+        <div class="layout-header-right ">
+            <div class="uooc-app-dowload">
+                <span class="uooc-app-btn"><i class="iconfont icon-kehuduan"></i>移动端</span>
+                <div class="uooc-app-panel layout-header-panel-arrow">
+                    <div class="clearfix">
+                        <div class="uooc-app-qr">
+                            <img src="{% static 'img/QR_app.png' %}" alt="立即下载">
+                            <p>下载优课UOOC APP</p>
+                        </div>
+                        <div class="uooc-app-qr">
+                            <img src="{% static 'img/QR_gzh.png' %}" alt="立即下载">
+                            <p>扫描二维码关注公众号</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 搜索 -->
+            <form class="layout-header-search" action="/search/" method="get"
+                  {% if request.user.is_authenticated %}style= 'margin-right: 70px'{% endif %}
+                  onsubmit="javascript: if(!document.getElementById(&#39;keyword&#39;).value) { return false;}">
+                <input type="text" name="q" id="keyword" value="" placeholder="请输入课程/学校/主讲老师" title="请输入课程/学校开始找课">
+            </form>
+
+            <!-- 已登录 -->
+            <!-- 未登录 -->
+            {% if request.user.is_authenticated %}
+                <div class="layout-header-info">
+                    <span class="layout-msg-number" ng-if="msgUnreadcnt" ng-cloak="">{{ msgUnreadcnt }}</span>
+                    <a class="layout-header-avatar" href="http://www.uooc.net.cn/home#/msg">
+                        <img id="top_avatar" src="/media/{{ request.user.studentinfo.avatar }}">
+                    </a>
+                    <ul class="layout-header-menu layout-header-panel-arrow">
+
+                        <li>
+                            <a href="{% url 'user:home' %}">个人中心</a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'user:logout' %}">退出
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            {% else %}
+                <a href="{% url 'user:login' %}"><span id="loginBtn"
+                                                       class="uc-btn uc-btn-small uc-btn-blue uc-btn-border">登录</span></a>
+                <a href="{% url 'user:register' %}"><span id="registerBtn"
+                                                          class="uc-btn uc-btn-small uc-btn-blue">注册</span></a>
+                <a href="{% url 'user:logout' %}"><span id="registerBtn" class="uc-btn uc-btn-small uc-btn-blue"
+                                                        style="background-color: #5cb85c">注销</span></a>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+
+
+
+<link rel="stylesheet" type="text/css" href="/static/css/about-fe1f14e04c.css">
+<link href="/static/css/swiper.min.css" rel="stylesheet">
+<script src="/static/js/swiper.min.js"></script>
+<div class="aboutus swiper-container swiper-no-swiping swiper-container-vertical">
+    <div class="swiper-wrapper" style="height: 629px; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
+        <div class="swiper-slide aboutus-1 swiper-slide-active" style="height: 629px;">
+            <div class="uwidth">
+                <h2 class="aboutus-title"></h2>
+                <div class="aboutus-main s-scoller s-editor" id="intro-txt" style="height: 269px;">
+                    &nbsp; &nbsp; &nbsp; &nbsp; UOOC联盟作为首个全国地方高校优质MOOC课程资源共享平台，在国家相关政策引导下，本着共创、共建、共享的原则，旨在整合全国地方高校优质教学资源，建设大规模开放在线课程，形成优质课程共建共享机制，为联盟高校学生及社会学员提供课程学习的选择和服务，力争提升地方高校人才培养水平和社会服务能力，促进我国高等教育均衡化发展。&nbsp; 联盟成立以来，稳步推进，快速发展。加盟高校规模不断扩大，成员高校达125所，遍布全国28个省市，68座城市，覆盖师生人数300万；MOOC课程数量不断增多，上线MOOC课程数量达309门；学校参与度广泛，供课学校已有61所；学生选课人数不断增加，累计选课人次近50万；运行机制不断完善，制定了《全国地方高校UOOC（优课）联盟章程》、《全国地方高校UOOC（优课）联盟建设与运行管理办法》、《全国地方高校UOOC（优课）联盟在线课程质量与学分互认管理办法》等规章制度，不断规范和完善联盟的各项管理；培训体系日趋完善，共举办了十期UOOC联盟教师培训和两期课程平台管理员培训，受益教师近千人。实现了地方高校间优质MOOC课程资源的共建共享以及学分互认，开展了在线教育的理论研究，并形成了较大的社会影响。<p><br></p>                </div>
+            </div>
+            <div class="aboutus-1-bottom">
+                <div class="uwidth clearfix">
+                    <p>加盟<em>125</em>所高校</p>
+                    <p>遍布<em>28</em>个省市自治区</p>
+                    <p>覆盖<em>300万</em>万师生人数</p>
+                    <p>上线<em>309</em>门MOOC课程</p>
+                    <p>累计<em>50万</em>万选课人次</p>
+                </div>
+            </div>
+        </div>
+                <div class="swiper-slide aboutus-2 swiper-slide-next" style="height: 629px;">
+            <div class="uwidth">
+                <h2 class="aboutus-title"></h2>
+                <div class="aboutus-main clearfix">
+                    <div class="devItem">
+                        <div class="iconfont icon-shuben1"></div>
+                        <h3>在课程内容上</h3>
+                        <p>联盟将进一步挖掘高校优质课程，加快建设特色课程，提高本科教学质量；联盟将会在充分了解学生需求的前提下，对接企业，明确企业用人需求，以就业培训为出发点，开设系列课程模块，制作系列课程群，开设更能满足市场需求的微专业课程，创新在线教育课程新形态，提高联盟高校就业率。</p>
+                    </div>
+                    <div class="devItem">
+                        <div class="iconfont icon-pingtai"></div>
+                        <h3>在平台规模上</h3>
+                        <p>联盟将进一步拓展联盟高校规模，形成更大范围的共建共享资源平台。</p>
+                    </div>
+                    <div class="devItem">
+                        <div class="iconfont icon-zhunbeiliangchan"></div>
+                        <h3>在教学管理上</h3>
+                        <p>联盟将进一步完善在线课程教学运行与管理新机制，以UOOC联盟和MOOC课程为契机，推动地方高校教学改革的深度发展，完善创新人才培养资源共享机制，全面提高教育教学质量。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+                <div class="swiper-slide aboutus-3" style="height: 629px;">
+            <div class="uwidth">
+                <h2 class="aboutus-title"></h2>
+                <div class="aboutus-main s-scoller s-editor" id="contact-txt" style="height: 229px;">
+                        <div style="width: 280px; margin: 0 auto">
+<h2 style="font-size: 18px;"><b>UOOC联盟合作（课程运营中心）</b></h2>
+<br>
+
+<div style="text-align: left; ">
+<div>深圳市优课在线教育有限公司&nbsp; &nbsp; 王老师</div>
+<div>联系电话：400-873-1173</div>
+<p>电子邮箱：service@uooc.online</p>
+<p>网址：www.uooconline.com</p>
+<br>
+<br>
+<p style=" text-align: center;font-size: 20px">专注在线教育，专注高等教育</p>
+<div style="text-align: center;"><a href="http://www.uooc.net.cn/">www.uooc.net.cn</a></div>
+
+</div></div>                </div>
+            </div>
+        </div>
+    </div>
+    <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span></div>
+</div>
+<script type="text/javascript">
+(function() {
+
+  var slider = new Swiper('.aboutus', {
+    pagination: '.swiper-pagination',
+    direction: 'vertical',
+    slidesPerView: 1,
+    paginationClickable: true,
+    spaceBetween: 0,
+    mousewheelControl: true,
+    noSwiping: true,
+    hashnav: true,
+    speed: 600,
+    onSlideChangeStart: function(swiper){
+     setSwiperSize(slider);
+    }
+  });
+
+  function setSwiperSize(swiper){
+    if(!slider) return;
+
+    var size = $('.swiper-slide').length;
+    var cindex = slider.activeIndex;
+    var scrrenHeight = $(window).height();
+    $('#intro-txt').height(scrrenHeight- 440);
+    $('#contact-txt').height(scrrenHeight - 480);
+    $('.swiper-wrapper').height(scrrenHeight - 80);
+    $('.layout-footer')[cindex+1 == size ? 'addClass': 'removeClass']('fixbottom');
+    slider.update();
+  }
+
+  $(window).resize(function(){
+    console.log(slider)
+    setSwiperSize(slider);
+  });
+
+setTimeout(function(){
+    setSwiperSize(slider);
+})
+
+})();
+</script>
+<!-- layout-footer -->
+<div class="layout-footer">
+  <div class="layout-wrapper clearfix">
+    <div class="footer-mod">
+      <a class="logo" href="http://www.uooconline.com/"></a>
+    </div>
+    <div class="footer-mod">
+            <ul class="footer-nav clearfix">
+        <li>
+                    <a href="http://www.uooc.net.cn/league/union/intro#contact">关于我们</a>
+                  </li>
+        <li>
+          <a href="http://www.uooc.net.cn/misc/provision">服务条款</a>
+        </li>
+
+
+        <li>
+          <a href="http://www.uooconline.com/org-admin" target="_blank">机构管理</a>
+        </li>
+        <li>
+          <a href="http://www.uooc.net.cn/index/disclaimer">免责声明</a>
+        </li>
+      </ul>
+
+
+      <p class="copyright">
+        <a class="copyright-link" href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备16050337号-1</a>
+        <span style="margin: 0 5px;">|</span>
+        <a class="copyright-link" target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030502001269">
+          <span class="copyright-logo"></span>粤公网安备 44030502001269号
+        </a>
+        <span style="margin: 0 5px;">|</span>
+        <a class="copyright-link" target="_blank" href="http://www.uooc.net.cn/misc/valicense">增值电信业务经营许可证B2-20173213</a>
+      </p>
+      <p class="copyright-msg">Copyright © 2015-
+        2018深圳市优课在线教育有限公司
+        (优课联盟)      </p>
+    </div>
+    <div class="footer-mod footer-server">
+      <a class="footer-server-qq" href="http://www.uooc.net.cn/index/service"><i class="iconfont icon-qq"></i>在线QQ客服</a>
+      <p class="service-time">客服工作时间：周一至周五 09:30-18:30</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- 浮动功能菜单 -->
+<div class="layout-app-funs">
+    <div class="app-funs" onclick="window.scrollTo(0,0);">
+        <span class="app-funs-icon icon iconfont icon-top"></span>
+        <span class="app-funs-txt app-funs-backtop"></span>
+    </div>
+    <div class="app-funs" id="uoochelp">
+        <span class="app-funs-icon icon iconfont icon-wenhao"></span>
+        <a class="app-funs-txt" href="http://www.uooc.net.cn/misc/support">优课<br>帮帮</a>
+    </div>
+    <div class="app-funs">
+        <span class="app-funs-icon icon iconfont icon-qq1"></span>
+        <a class="app-funs-txt" href="http://www.uooc.net.cn/index/service">在线<br>咨询</a>
+    </div>
+</div>
+
+<!-- 浏览器版本 -->
+<div id="bishiie-container" style="display: none;">
+    <div id="bishiie">
+        <h1>您的浏览器版本过低，请升级后再试！</h1>
+        <h2>为获得最佳浏览体验，建议您升级或选用以下浏览器。</h2>
+        <div style="margin:30px auto;width:800px">
+            <a class="browse bs360" title="下载360安全浏览器" target="_blank" href="http://se.360.cn/">
+                <p>360安全浏览器</p>
+            </a>
+            <a class="browse bsff" title="下载火狐浏览器" target="_blank" href="http://www.firefox.com.cn/">
+                <p>火狐浏览器</p>
+            </a>
+            <a class="browse bschrome" title="下载谷歌chrome浏览器" target="_blank" href="https://www.baidu.com/s?ie=utf-8&amp;f=8&amp;rsv_bp=1&amp;rsv_idx=1&amp;tn=baidu&amp;wd=%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8&amp;oq=%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8&amp;rsv_pq=be6cba4c0000413e&amp;rsv_t=e7f7piiP15vapmOCh9Pnni4jjbWUai6Y3KjM4hWNRkrV47pzsTY1KeYuCeo&amp;rqlang=cn&amp;rsv_enter=0">
+                <p>谷歌浏览器</p>
+            </a>
+            <a class="browse bsie" title="下载IE浏览器" target="_blank" href="https://www.baidu.com/s?wd=ie10&amp;ie=UTF-8">
+                <p>IE10+浏览器</p>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!--[if lte IE 9]>
+    <script type="text/javascript">
+        document.getElementsByTagName("body")[0].innerHTML=document.getElementById("bishiie-container").innerHTML
+    </script>
+<![endif]-->
+
+<script type="text/javascript">
+    var isTeacherPage = location.href.search('/teacher/manage/course') > -1;
+    if(isTeacherPage) document.getElementById('uoochelp').style.display = 'none';
+</script><script type="text/javascript" src="/static/js/bootstrap-a6dd36daa6.js"></script>
+</body></html>
